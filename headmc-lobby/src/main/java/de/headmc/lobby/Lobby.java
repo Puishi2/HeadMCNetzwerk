@@ -38,6 +38,7 @@ public class Lobby extends JavaPlugin {
         pluginManager.registerEvents(new NavigatorListener(), this);
         pluginManager.registerEvents(new CancelledEvents(), this);
 
+
         getCommand("setup").setExecutor(new SetupCommand());
 
     }
