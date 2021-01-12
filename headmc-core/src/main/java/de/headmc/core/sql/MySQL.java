@@ -68,7 +68,8 @@ public class MySQL {
     }
 
     public static void createTables() {
-        ;
+        update("CREATE TABLE IF NOT EXISTS coins (UUID varchar(64), coins varchar(64));");
     }
+
 
 }

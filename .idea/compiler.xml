@@ -10,5 +10,8 @@
         <module name="headmc-core" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="headmc-api" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
