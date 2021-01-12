@@ -71,5 +71,7 @@ public class MySQL {
         update("CREATE TABLE IF NOT EXISTS coins (UUID varchar(64), coins varchar(64));");
     }
 
-
+    public static Connection getConnection() {
+        return connection;
+    }
 }

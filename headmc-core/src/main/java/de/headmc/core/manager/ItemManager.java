@@ -50,7 +50,7 @@ public class ItemManager {
         return this;
     }
 
-    public ItemManager setName(String name) {
+    public ItemManager setDisplayName(String name) {
         ItemMeta im = is.getItemMeta();
         im.setDisplayName(name);
         is.setItemMeta(im);

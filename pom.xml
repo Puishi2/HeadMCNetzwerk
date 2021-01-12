@@ -12,7 +12,6 @@
     <modules>
         <module>headmc-core</module>
         <module>headmc-lobby</module>
-        <module>headmc-api</module>
     </modules>
 
 </project>
