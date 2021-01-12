@@ -3,3 +3,4 @@ author: HeadMC
 version: 1.0
 main: de.headmc.lobby.Lobby
 commands:
+  setup:
