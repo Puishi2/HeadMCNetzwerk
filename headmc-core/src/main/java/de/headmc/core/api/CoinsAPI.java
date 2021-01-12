@@ -1,6 +1,5 @@
 package de.headmc.core.api;
 
-import de.headmc.core.Core;
 import de.headmc.core.sql.MySQL;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -13,7 +12,7 @@ public class CoinsAPI {
 
     public boolean exists(Player player) {
         try {
-            PreparedStatement State = MySQL.getConnection().prepareStatement("SELECT * FROM coins WHERE uuid='" + player.getUniqueId() + "';");
+            PreparedStatement State = MySQL.getConnection().prepareStatement("SELECT * FROM coins WHERE UUID='" + player.getUniqueId() + "';");
             ResultSet Result = State.executeQuery();
             boolean Contains = Result.next();
             State.close();
@@ -28,7 +27,7 @@ public class CoinsAPI {
 
     public int getCoins(Player player) {
         try {
-            PreparedStatement State = MySQL.getConnection().prepareStatement("SELECT * FROM coins WHERE uuid='" + player.getUniqueId() + "';");
+            PreparedStatement State = MySQL.getConnection().prepareStatement("SELECT * FROM coins WHERE UUID='" + player.getUniqueId() + "';");
             ResultSet Result = State.executeQuery();
             Result.next();
             int stats1 = Result.getInt("tickets");

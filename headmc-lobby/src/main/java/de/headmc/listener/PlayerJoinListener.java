@@ -1,6 +1,7 @@
 package de.headmc.listener;
 
 import de.headmc.core.Core;
+import de.headmc.core.api.CoinsAPI;
 import de.headmc.utils.Data;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
@@ -19,19 +20,16 @@ public class PlayerJoinListener implements Listener {
         player.setGameMode(GameMode.ADVENTURE);
         player.setLevel(2021);
 
+        new Data().loadJoinitems(player);
+
+        /*
         if(!Core.getInstance().getCoinsAPI().exists(player)) {
 
             Core.getInstance().getCoinsAPI().createPlayer(player);
 
         }
-
-        if(!player.hasPlayedBefore()) {
-
-            Core.getInstance().getCoinsAPI().addCoins(player, 1000);
-
-        }
-
-        Data.loadJoinitems(player);
+         */
+        new CoinsAPI().createPlayer(player);
 
     }
 

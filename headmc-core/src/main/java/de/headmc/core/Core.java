@@ -25,7 +25,7 @@ public class Core extends JavaPlugin {
         this.coinsAPI = coinsAPI;
         new MySQL("localhost", "headmc", "admin", "Minecraft05!");
 
-        System.out.println(data.getNetworkPrefix() + "Core wird gestartet!");
+        System.out.println(data.NETWORK_PREFIX + "Core wird gestartet!");
 
     }
 

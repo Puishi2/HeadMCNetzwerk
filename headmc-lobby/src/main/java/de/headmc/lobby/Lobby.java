@@ -19,7 +19,7 @@ public class Lobby extends JavaPlugin {
         instance = this;
         init();
 
-        System.out.println(Core.getInstance().getData().getNetworkPrefix() + "Lobby wird gestartet!");
+        System.out.println(Data.NETWORK_PREFIX + "Lobby wird gestartet!");
 
     }
 
