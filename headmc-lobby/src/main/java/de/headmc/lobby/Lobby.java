@@ -9,6 +9,9 @@ public class Lobby extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
+
+        //HUNDESOHN
+
     }
 
     @Override
