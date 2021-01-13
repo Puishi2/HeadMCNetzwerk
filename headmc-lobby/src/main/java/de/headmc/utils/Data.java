@@ -20,7 +20,11 @@ import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
 
+import java.util.ArrayList;
+
 public class Data {
+
+    public static ArrayList<Player> build = new ArrayList<>();
 
     public void loadJoinitems(Player player){
 
@@ -52,8 +56,32 @@ public class Data {
             objective.getScore("  §8➥ §4Admin").setScore(10);
         } else if(permissionPlayer.hasPermissionGroup("SrDeveloper")) {
             objective.getScore("  §8➥ §bSrDeveloper").setScore(10);
-        } else {
-            objective.getScore("  §8➥ §aSpieler").setScore(10);
+        } else if(permissionPlayer.hasPermissionGroup("Developer")){
+            objective.getScore("  §8➥ §bDeveloper").setScore(10);
+        }else if(permissionPlayer.hasPermissionGroup("Builder")){
+            objective.getScore("  §8➥ §2Builder").setScore(10);
+        }else if(permissionPlayer.hasPermissionGroup("Supporter")){
+            objective.getScore("  §8➥ §3Supporter").setScore(10);
+        }else if(permissionPlayer.hasPermissionGroup("Moderator")){
+            objective.getScore("  §8➥ §9Moderator").setScore(10);
+        }else if(permissionPlayer.hasPermissionGroup("SrModerator")){
+            objective.getScore("  §8➥ §9SrModerator").setScore(10);
+        }else if(permissionPlayer.hasPermissionGroup("Freund")){
+            objective.getScore("  §8➥ §fFreund").setScore(10);
+        }else if(permissionPlayer.hasPermissionGroup("SrContent")){
+            objective.getScore("  §8➥ §cSrContent").setScore(10);
+        }else if(permissionPlayer.hasPermissionGroup("Content")){
+            objective.getScore("  §8➥ §cContent").setScore(10);
+        }else if(permissionPlayer.hasPermissionGroup("Prime")){
+            objective.getScore("  §8➥ §6Prime").setScore(10);
+        }else if(permissionPlayer.hasPermissionGroup("YouTuber")){
+            objective.getScore("  §8➥ §5YouTuber").setScore(10);
+        }else if(permissionPlayer.hasPermissionGroup("Premium+")){
+            objective.getScore("  §8➥ §aPremium§6+").setScore(10);
+        }else if(permissionPlayer.hasPermissionGroup("Head")){
+            objective.getScore("  §8➥ §3Head").setScore(10);
+        }else {
+            objective.getScore("  §8➥ §7Spieler").setScore(10);
         }
         objective.getScore("§1").setScore(9);
         objective.getScore(" §8» §7Coins").setScore(8);

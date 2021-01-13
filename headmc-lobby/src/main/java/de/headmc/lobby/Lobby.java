@@ -1,5 +1,6 @@
 package de.headmc.lobby;
 
+import de.headmc.command.BuildCommand;
 import de.headmc.commands.SetupCommand;
 import de.headmc.core.Core;
 import de.headmc.core.data.Data;
@@ -37,8 +38,9 @@ public class Lobby extends JavaPlugin {
         pluginManager.registerEvents(new PlayerJoinListener(), this);
         pluginManager.registerEvents(new NavigatorListener(), this);
         pluginManager.registerEvents(new CancelledEvents(), this);
+        pluginManager.registerEvents(new BuildCommand(), this);
 
-
+        getCommand("build").setExecutor(new BuildCommand());
         getCommand("setup").setExecutor(new SetupCommand());
 
     }

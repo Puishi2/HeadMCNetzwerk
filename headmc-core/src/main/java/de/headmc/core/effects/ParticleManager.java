@@ -8,7 +8,7 @@ public class ParticleManager {
 
     public void spawnSpellCircle(Location location, int size) {
 
-        for (int degree = 0; degree < 360; degree++) {
+        for (int degree = 2; degree < 360; degree++) {
 
             double radians = Math.toRadians(degree);
             double x = Math.cos(radians) * size;

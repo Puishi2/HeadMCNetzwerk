@@ -33,7 +33,7 @@ public class NavigatorListener implements Listener {
 
             InventoryBuilder.setInvRand(inventory, player);
 
-            inventory.setItem(22, new ItemManager(Material.FIREWORK).addEnchant(Enchantment.THORNS, 3)
+            inventory.setItem(31, new ItemManager(Material.FIREWORK).addEnchant(Enchantment.THORNS, 3)
                     .addLoreLine("§8» §7Teleportiere dich zum Spawn.").setFlags().setDisplayName("§a§lSpawn").toItemStack());
 
             player.openInventory(inventory);
