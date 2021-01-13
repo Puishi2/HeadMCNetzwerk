@@ -117,6 +117,13 @@
             <version>1.16-R0.4-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
+		<dependency>
+            <groupId>de.Puishi</groupId>
+            <artifactId>SpigotAPI</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/spigot.jar</systemPath>
+        </dependency>
     </dependencies>
 
 </project>

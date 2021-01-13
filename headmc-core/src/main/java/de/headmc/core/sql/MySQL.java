@@ -67,8 +67,20 @@ public class MySQL {
         return rs;
     }
 
+    public static ResultSet getSqlData(String query) {
+        if(connection != null) {
+            try {
+                return connection.createStatement().executeQuery(query);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
+
     public static void createTables() {
         update("CREATE TABLE IF NOT EXISTS coins (UUID varchar(64), coins varchar(64));");
+        update("CREATE TABLE IF NOT EXISTS settings (UUID varchar(64), sounds INT);");
     }
 
     public static Connection getConnection() {

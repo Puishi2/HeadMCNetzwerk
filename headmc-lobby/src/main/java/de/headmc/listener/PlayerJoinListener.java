@@ -1,6 +1,7 @@
 package de.headmc.listener;
 
 import de.headmc.core.api.CoinsAPI;
+import de.headmc.core.manager.SettingsManager;
 import de.headmc.core.player.HeadMCPlayer;
 import de.headmc.utils.Data;
 import de.headmc.utils.LocationManager;
@@ -30,10 +31,15 @@ public class PlayerJoinListener implements Listener {
         if(!new CoinsAPI().exists(player)) {
             new CoinsAPI().createPlayer(player);
         }
+        if(!new SettingsManager().exists(player)) {
+            new SettingsManager().createPlayer(player);
+        }
 
         player.teleport(new LocationManager().getLocation("spawn"));
 
         new Data().createScoreboard(headMCPlayer, player);
+
+        new Data().sendActionbar(player);
 
     }
 
