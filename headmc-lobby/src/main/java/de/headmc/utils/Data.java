@@ -27,7 +27,7 @@ public class Data {
         player.getInventory().clear();
         player.getInventory().setArmorContents(null);
 
-        ItemStack nav = new ItemManager(Material.BOOK).setDisplayName("§8» §b§LNavigator §8× §7Rechtsclick").toItemStack();
+        ItemStack nav = new ItemManager(Material.BOOK).setDisplayName("§8» §3§LNavigator §8× §7Rechtsclick").toItemStack();
 
         player.getInventory().setItem(1, nav);
         player.getInventory().setItem(4, new ItemManager(Base64.getSkull("http://textures.minecraft.net/texture/d5c6dc2bbf51c36cfc7714585a6a5683ef2b14d47d8ff714654a893f5da622")).setDisplayName("§8» §3§lExtras §8× §7Rechtsclick").toItemStack());
@@ -43,7 +43,7 @@ public class Data {
         IPermissionPlayer permissionPlayer = PermissionPool.getInstance().getPermissionPlayerManager().getCachedPermissionPlayer(player.getUniqueId());
 
         objective.setDisplaySlot(DisplaySlot.SIDEBAR);
-        objective.setDisplayName("§8✗ §3HeadMC.de §8✗");
+        objective.setDisplayName("§8✗ §3§lHeadMC.de §8✗");
 
         objective.getScore("§8§m----------------").setScore(13);
         objective.getScore("§3").setScore(12);
@@ -57,10 +57,10 @@ public class Data {
         }
         objective.getScore("§1").setScore(9);
         objective.getScore(" §8» §7Coins").setScore(8);
-        objective.getScore(" §8➥ §3" + new CoinsAPI().getCoins(player)).setScore(7);
+        objective.getScore(" §8➥ §3§l" + new CoinsAPI().getCoins(player)).setScore(7);
         objective.getScore("§2").setScore(6);
         objective.getScore(" §8» §7Hoster").setScore(5);
-        objective.getScore(" §8➥ §3Venocix.de").setScore(4);
+        objective.getScore(" §8➥ §3§lVenocix.de").setScore(4);
         objective.getScore("§4").setScore(3);
         objective.getScore("§8§m----------------§7").setScore(2);
 

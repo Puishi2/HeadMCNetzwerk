@@ -27,31 +27,30 @@ public class NavigatorListener implements Listener {
         if(event.getItem().getItemMeta() == null) return;
         if(event.getItem().getItemMeta().getDisplayName() == null) return;
 
-        if(event.getItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §bNavigator")) {
+        if(event.getItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §3§LNavigator §8× §7Rechtsclick")) {
 
-            Inventory inventory = InventoryBuilder.createInventory(player, 54, "§8» §b§lNavigator §8- §7SpielModie");
-
-
-            inventory.setItem(23, new ItemManager(Material.FIREWORK).addEnchant(Enchantment.THORNS, 3).addLoreLine("§8Teleportiert dich zum §3§lSpawn.").setDisplayName("§3§lSpawn").toItemStack());
+            Inventory inventory = InventoryBuilder.createInventory(player, 54, "§8» §3§lNavigator §8- §7SpielModie");
 
             InventoryBuilder.setInvRand(inventory, player);
+
+            inventory.setItem(22, new ItemManager(Material.FIREWORK).addEnchant(Enchantment.THORNS, 3)
+                    .addLoreLine("§8» §7Teleportiere dich zum Spawn.").setFlags().setDisplayName("§a§lSpawn").toItemStack());
+
             player.openInventory(inventory);
+
         }
 
     }
 
     @EventHandler
-    public void onClick(InventoryClickEvent event){
+    public void onClick(final InventoryClickEvent event){
 
         Player player = (Player) event.getWhoClicked();
 
+
         if(event.getInventory().getTitle().equalsIgnoreCase("§8» §b§lNavigator §8- §7SpielModie")){
-           if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§3§lSpawn")){
-
-               Location location = new LocationManager().getLocation("spawn");
-
-
-               player.teleport(location);
+           if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§a§lSpawn")){
+               player.teleport(new LocationManager().getLocation("spawn"));
            }
         }
 

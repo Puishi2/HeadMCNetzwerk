@@ -47,7 +47,6 @@ public class LocationManager {
         double X = this.cfg.getDouble(name + ".X");
         double Y = this.cfg.getDouble(name + ".Y");
         double Z = this.cfg.getDouble(name + ".Z");
-        //World world = Bukkit.getWorld(this.cfg.getString(name + ".World"));
         World world = Lobby.getInstance().getServer().getWorld(this.cfg.getString(name + ".World"));
         Location loc = new Location(world, X, Y, Z);
         return loc;
