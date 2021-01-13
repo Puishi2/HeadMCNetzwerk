@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="headmc-lobby" />
         <module name="headmc-core" />
+        <module name="headmc-bungee" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

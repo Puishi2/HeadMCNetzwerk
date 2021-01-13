@@ -9,12 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>headmc-core</artifactId>
-
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-    </properties>
+    <artifactId>headmc-bungee</artifactId>
 
     <build>
         <plugins>
@@ -33,7 +28,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>de.headmc.core.Core</mainClass>
+                            <mainClass>de.headmc.bungee.Proxy</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -41,41 +36,39 @@
         </plugins>
     </build>
 
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
     <repositories>
-        <repository>
-            <id>gradle-release-local</id>
-            <url>https://repo.thesimplecloud.eu/artifactory/list/gradle-release-local/</url>
-        </repository>
-        <repository>
-            <id>spigot-repo</id>
-            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
-        </repository>
         <repository>
             <id>papermc</id>
             <url>https://papermc.io/repo/repository/maven-public/</url>
         </repository>
         <repository>
-            <id>minecraft-repo</id>
-            <url>https://libraries.minecraft.net/</url>
+            <id>gradle-release-local</id>
+            <url>https://repo.thesimplecloud.eu/artifactory/list/gradle-release-local/</url>
         </repository>
+
     </repositories>
 
-
-
-
     <dependencies>
+
         <dependency>
-            <groupId>com.mojang</groupId>
-            <artifactId>authlib</artifactId>
-            <version>1.5.21</version>
+            <groupId>io.github.waterfallmc</groupId>
+            <artifactId>waterfall-api</artifactId>
+            <version>1.16-R0.4-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
+        <!-- HeadMC-Copre -->
         <dependency>
-            <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-api</artifactId>
-            <version>1.8.8-R0.1-SNAPSHOT</version>
-            <scope>provided</scope>
+            <groupId>org.example</groupId>
+            <artifactId>headmc-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
+
         <dependency>
             <groupId>eu.thesimplecloud.simplecloud</groupId>
             <artifactId>simplecloud-api</artifactId>
@@ -109,12 +102,7 @@
             <version>2.0.0</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>io.github.waterfallmc</groupId>
-            <artifactId>waterfall-api</artifactId>
-            <version>1.16-R0.4-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
+
     </dependencies>
 
 </project>

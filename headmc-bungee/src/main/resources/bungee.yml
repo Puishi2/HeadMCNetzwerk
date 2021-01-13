@@ -1,0 +1,8 @@
+name: bungee
+version: 1.0
+main: de.headmc.bungee.Proxy
+author: HeadMC - EntwicklungsTeam
+commands:
+  info:
+  help:
+  kick:
