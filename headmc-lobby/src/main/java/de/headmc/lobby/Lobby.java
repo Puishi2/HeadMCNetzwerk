@@ -1,14 +1,14 @@
 package de.headmc.lobby;
 
-import de.headmc.command.BuildCommand;
+import de.headmc.commands.BuildCommand;
 import de.headmc.commands.SetupCommand;
-import de.headmc.core.Core;
 import de.headmc.core.data.Data;
 import de.headmc.core.sql.MySQL;
 import de.headmc.effects.SpawnParticles;
 import de.headmc.listener.CancelledEvents;
 import de.headmc.listener.PlayerJoinListener;
-import de.headmc.listener.navigator.NavigatorListener;
+import de.headmc.listener.lobbyitems.ExtraListener;
+import de.headmc.listener.lobbyitems.NavigatorListener;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -39,6 +39,7 @@ public class Lobby extends JavaPlugin {
         pluginManager.registerEvents(new NavigatorListener(), this);
         pluginManager.registerEvents(new CancelledEvents(), this);
         pluginManager.registerEvents(new BuildCommand(), this);
+        pluginManager.registerEvents(new ExtraListener(), this);
 
         getCommand("build").setExecutor(new BuildCommand());
         getCommand("setup").setExecutor(new SetupCommand());

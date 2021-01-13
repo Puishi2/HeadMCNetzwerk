@@ -20,31 +20,30 @@ public class InfoCommand extends Command {
             ProxiedPlayer proxiedPlayer = (ProxiedPlayer)  commandSender;
             ProxiedPlayer proxiedTarget = ProxyServer.getInstance().getPlayer(strings[0]);
 
-
             if(proxiedPlayer.hasPermission("headmc.team")){
 
-                if(strings.length == 0){
-                    proxiedPlayer.sendMessage(Data.PROXY_PREFIX + "Du musst §3/info <PLAYER> §7benutzen, um Informationen von dem Jewaliegen §3Spieler §7zu bekommen.");
-                    return;
-                }
-                if(strings.length == 1){
+                if(strings.length == 0) {
+                    proxiedPlayer.sendMessage(Data.PROXY_PREFIX + "§cBenutze /info <Player>!");
+                } else if(strings.length == 1) {
 
-                   if(proxiedTarget != null){
-                       proxiedPlayer.sendMessage("§8§m--------------------");
-                       proxiedPlayer.sendMessage("§3");
-                       proxiedPlayer.sendMessage("§8➥ §7Name §8× §3" + proxiedTarget.getName());
-                       proxiedPlayer.sendMessage("§8➥ §7Server §8× §3" + proxiedTarget.getServer().getInfo());
-                       proxiedPlayer.sendMessage("§8➥ §7Coins §8× §3-");
-                       proxiedPlayer.sendMessage("§8➥ §7UUID §8× §3" + proxiedTarget.getUniqueId().toString());
-                       proxiedPlayer.sendMessage("§8➥ §7OnlineTime §8× §3-");
-                       proxiedPlayer.sendMessage("§8➥ §7Banpunkte §8× §3-");
-                       proxiedPlayer.sendMessage("§8➥ §7Mutepunkte §8× §3-");
-                       proxiedPlayer.sendMessage("§5");
-                       proxiedPlayer.sendMessage("§8§m--------------------§8§7§5§3§9");
-                   }else {
-                       proxiedPlayer.sendMessage(Data.PROXY_PREFIX + "Der angegebende §3Spieler §7 ist nicht online.");
-                   }
+                    if(proxiedTarget != null){
+                        proxiedPlayer.sendMessage("§8§m--------------------");
+                        proxiedPlayer.sendMessage("§3");
+                        proxiedPlayer.sendMessage("§8➥ §7Name §8× §3" + proxiedTarget.getName());
+                        proxiedPlayer.sendMessage("§8➥ §7Server §8× §3" + proxiedTarget.getServer().getInfo().getName());
+                        proxiedPlayer.sendMessage("§8➥ §7Coins §8× §3-");
+                        proxiedPlayer.sendMessage("§8➥ §7UUID §8× §3" + proxiedTarget.getUniqueId().toString());
+                        proxiedPlayer.sendMessage("§8➥ §7OnlineTime §8× §3-");
+                        proxiedPlayer.sendMessage("§8➥ §7Banpunkte §8× §3-");
+                        proxiedPlayer.sendMessage("§8➥ §7Mutepunkte §8× §3-");
+                        proxiedPlayer.sendMessage("§5");
+                        proxiedPlayer.sendMessage("§8§m--------------------§8§7§5§3§9");
+                    }else {
+                        proxiedPlayer.sendMessage(Data.PROXY_PREFIX + "§cDer angegebende §3Spieler §7 ist nicht online.");
+                    }
 
+                } else {
+                    proxiedPlayer.sendMessage(Data.PROXY_PREFIX + "§cBenutze /info <Player>!");
                 }
 
             }

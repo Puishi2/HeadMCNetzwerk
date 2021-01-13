@@ -1,4 +1,4 @@
-package de.headmc.listener.navigator;
+package de.headmc.listener.lobbyitems;
 
 import de.headmc.core.builder.InventoryBuilder;
 import de.headmc.core.manager.ItemManager;
@@ -47,8 +47,11 @@ public class NavigatorListener implements Listener {
 
         Player player = (Player) event.getWhoClicked();
 
+        if(event.getCurrentItem() == null) return;
+        if(event.getCurrentItem().getItemMeta() == null) return;
+        if(event.getCurrentItem().getItemMeta().getDisplayName() == null) return;
 
-        if(event.getInventory().getTitle().equalsIgnoreCase("§8» §b§lNavigator §8- §7SpielModie")){
+        if(event.getInventory().getName().equalsIgnoreCase("§8» §3§lNavigator §8- §7SpielModie")){
            if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§a§lSpawn")){
                player.teleport(new LocationManager().getLocation("spawn"));
            }

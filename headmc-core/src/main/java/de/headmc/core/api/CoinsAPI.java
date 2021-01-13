@@ -1,6 +1,7 @@
 package de.headmc.core.api;
 
 import de.headmc.core.sql.MySQL;
+import net.md_5.bungee.api.connection.ProxiedPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -25,7 +26,7 @@ public class CoinsAPI {
         }
     }
 
-    public int getCoins(Player player) {
+    public int getCoinsSpigot(Player player) {
         try {
             PreparedStatement State = MySQL.getConnection().prepareStatement("SELECT * FROM coins WHERE UUID='" + player.getUniqueId() + "';");
             ResultSet Result = State.executeQuery();
@@ -41,17 +42,17 @@ public class CoinsAPI {
         }
     }
 
-    public void addCoins(Player player, int size) {
-        int coins = getCoins(player) + size;
+    public void addCoinsSpigot(Player player, int size) {
+        int coins = getCoinsSpigot(player) + size;
         MySQL.update("UPDATE coins SET coins='" + coins + "' WHERE uuid='" + player.getUniqueId() + "'");
     }
 
-    public void removeCoins(Player player, int size) {
-        int coins = getCoins(player) - size;
+    public void removeCoinsSpigot(Player player, int size) {
+        int coins = getCoinsSpigot(player) - size;
         MySQL.update("UPDATE coins SET coins='" + coins + "' WHERE uuid='" + player.getUniqueId() + "'");
     }
 
-    public void setCoins(Player player, int size) {
+    public void setCoinsSpigot(Player player, int size) {
         MySQL.update("UPDATE coins SET coins='" + size + "' WHERE uuid='" + player.getUniqueId() + "'");
     }
 

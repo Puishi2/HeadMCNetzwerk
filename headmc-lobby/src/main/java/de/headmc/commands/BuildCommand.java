@@ -1,4 +1,4 @@
-package de.headmc.command;
+package de.headmc.commands;
 
 import de.headmc.utils.Data;
 import org.bukkit.GameMode;

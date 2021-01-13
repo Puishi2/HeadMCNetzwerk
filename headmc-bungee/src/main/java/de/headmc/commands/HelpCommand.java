@@ -19,21 +19,22 @@ public class HelpCommand extends Command {
 
             ProxiedPlayer player = (ProxiedPlayer) commandSender;
 
-            if(strings.length == 1){
-                player.sendMessage(Data.PROXY_PREFIX + "Du musst §3/help §7benutzen, um Informationen von des §3Netzwerkes §7zu bekommen.");
-                return;
-            }else if(strings.length == 0){
-                player.disconnect();
+            if(strings.length == 0) {
 
                 player.sendMessage("§8§m--------------------");
                 player.sendMessage("§3");
                 player.sendMessage("§8➥ §7Teamspeak §8× §3HeadMC.de");
                 player.sendMessage("§8➥ §7Forum §8× §3Heamc.de");
                 player.sendMessage("§8➥ §7Discord §8× §3CBzShQRdHp");
-                player.sendMessage("§8➥ §7Youtuber ? §8× §3/yt");
-                player.sendMessage("§8➥ §7Premium+ ? §8× §3/p+");
+                player.sendMessage("§8➥ §7Youtuber ? §8× §6/yt");
+                player.sendMessage("§8➥ §7Premium+ ? §8× §6/p+");
                 player.sendMessage("§5");
                 player.sendMessage("§8§m--------------------§8§7§5§3§9");
+
+            } else {
+
+                player.sendMessage(Data.PROXY_PREFIX + "Du musst §3/help §7benutzen, um Informationen über das §3Netzwerk §7zu erfahren.");
+
             }
 
         }

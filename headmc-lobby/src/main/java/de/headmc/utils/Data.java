@@ -85,7 +85,7 @@ public class Data {
         }
         objective.getScore("§1").setScore(9);
         objective.getScore(" §8» §7Coins").setScore(8);
-        objective.getScore(" §8➥ §3§l" + new CoinsAPI().getCoins(player)).setScore(7);
+        objective.getScore(" §8➥ §3§l" + new CoinsAPI().getCoinsSpigot(player)).setScore(7);
         objective.getScore("§2").setScore(6);
         objective.getScore(" §8» §7Hoster").setScore(5);
         objective.getScore(" §8➥ §3§lVenocix.de").setScore(4);

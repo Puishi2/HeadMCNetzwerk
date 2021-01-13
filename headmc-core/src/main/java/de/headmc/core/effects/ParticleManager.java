@@ -1,5 +1,6 @@
 package de.headmc.core.effects;
 
+import kotlin.reflect.jvm.internal.impl.metadata.ProtoBuf;
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.Location;
