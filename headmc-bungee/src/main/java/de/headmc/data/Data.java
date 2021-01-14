@@ -4,6 +4,7 @@ import de.headmc.bungee.Proxy;
 import de.headmc.commands.HelpCommand;
 import de.headmc.commands.InfoCommand;
 import de.headmc.commands.KickCommand;
+import de.headmc.commands.PingCommand;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
@@ -22,6 +23,7 @@ public class Data {
         pluginManager.registerCommand(Proxy.getInstance(), new InfoCommand("info"));
         pluginManager.registerCommand(Proxy.getInstance(), new HelpCommand("help"));
         pluginManager.registerCommand(Proxy.getInstance(), new KickCommand("kick"));
+        pluginManager.registerCommand(Proxy.getInstance(), new PingCommand("ping"));
 
 
     }

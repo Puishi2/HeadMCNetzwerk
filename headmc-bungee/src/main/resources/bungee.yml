@@ -6,3 +6,4 @@ commands:
   info:
   help:
   kick:
+  ping:

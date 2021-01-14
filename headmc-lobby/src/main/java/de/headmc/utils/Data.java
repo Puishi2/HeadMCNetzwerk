@@ -5,6 +5,7 @@ import de.headmc.core.api.CoinsAPI;
 import de.headmc.core.manager.ActionbarManager;
 import de.headmc.core.manager.Base64;
 import de.headmc.core.manager.ItemManager;
+import de.headmc.core.manager.ScoreboardManager;
 import de.headmc.core.player.HeadMCPlayer;
 import de.headmc.lobby.Lobby;
 import eu.thesimplecloud.api.CloudAPI;
@@ -20,9 +21,7 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
-import org.bukkit.scoreboard.DisplaySlot;
-import org.bukkit.scoreboard.Objective;
-import org.bukkit.scoreboard.Scoreboard;
+import org.bukkit.scoreboard.*;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -31,6 +30,7 @@ public class Data {
 
     public static ArrayList<Player> build = new ArrayList<>();
     public static ArrayList<Player> hidePlayer = new ArrayList<>();
+    ScoreboardManager scoreboardManager = new ScoreboardManager();
 
     public void loadJoinitems(Player player){
 
@@ -49,58 +49,77 @@ public class Data {
 
     public void createScoreboard(HeadMCPlayer headMCPlayer, Player player) {
 
-        Scoreboard scoreboard = Bukkit.getScoreboardManager().getNewScoreboard();
-        Objective objective = scoreboard.registerNewObjective("aaa", "bbb");
+
+        ScoreboardManager scoreboardManager = new ScoreboardManager();
+        Scoreboard scoreboard = player.getScoreboard();
+
+        scoreboardManager.createTeam(player.getScoreboard(), "01Admin");
+        scoreboardManager.createTeam(player.getScoreboard(), "02Spieler");
+
+        scoreboard.getTeam("01Admin").setPrefix("§4Admin §8| §4");
+        scoreboard
+                .getTeam("02Spieler").setPrefix("§7");
 
         IPermissionPlayer permissionPlayer = PermissionPool.getInstance().getPermissionPlayerManager().getCachedPermissionPlayer(player.getUniqueId());
 
-        objective.setDisplaySlot(DisplaySlot.SIDEBAR);
-        objective.setDisplayName("§8✗ §3§lHeadMC.de §8✗");
-
-        objective.getScore("§8§m----------------").setScore(13);
-        objective.getScore("§3").setScore(12);
-        objective.getScore(" §8» §7Rang").setScore(11);
+        scoreboardManager.setLine(13, "§8§m----------------");
+        scoreboardManager.setLine(12, "§3");
+        scoreboardManager.setLine(11, " §8» §7Rang");
         if(permissionPlayer.hasPermissionGroup("Admin")) {
-            objective.getScore("  §8➥ §4Admin").setScore(10);
+            scoreboardManager.setLine(10, " §8» §4Admin");
         } else if(permissionPlayer.hasPermissionGroup("SrDeveloper")) {
-            objective.getScore("  §8➥ §bSrDeveloper").setScore(10);
+            scoreboardManager.setLine(10, " §8» §bSrDeveloper");
         } else if(permissionPlayer.hasPermissionGroup("Developer")){
-            objective.getScore("  §8➥ §bDeveloper").setScore(10);
+            scoreboardManager.setLine(10, " §8» §bDeveloper");
         }else if(permissionPlayer.hasPermissionGroup("Builder")){
-            objective.getScore("  §8➥ §2Builder").setScore(10);
+            scoreboardManager.setLine(10, " §8» §2Builder");
         }else if(permissionPlayer.hasPermissionGroup("Supporter")){
-            objective.getScore("  §8➥ §3Supporter").setScore(10);
+            scoreboardManager.setLine(10, " §8» §3Supporter");
         }else if(permissionPlayer.hasPermissionGroup("Moderator")){
-            objective.getScore("  §8➥ §9Moderator").setScore(10);
+            scoreboardManager.setLine(10, " §8» §9Moderator");
         }else if(permissionPlayer.hasPermissionGroup("SrModerator")){
-            objective.getScore("  §8➥ §9SrModerator").setScore(10);
+            scoreboardManager.setLine(10, " §8» §9SrModerator");
         }else if(permissionPlayer.hasPermissionGroup("Freund")){
-            objective.getScore("  §8➥ §fFreund").setScore(10);
+            scoreboardManager.setLine(10, " §8» §fFreund");
         }else if(permissionPlayer.hasPermissionGroup("SrContent")){
-            objective.getScore("  §8➥ §cSrContent").setScore(10);
+            scoreboardManager.setLine(10, " §8» §cSrContent");
         }else if(permissionPlayer.hasPermissionGroup("Content")){
-            objective.getScore("  §8➥ §cContent").setScore(10);
+            scoreboardManager.setLine(10, " §8» §cContent");
         }else if(permissionPlayer.hasPermissionGroup("Prime")){
-            objective.getScore("  §8➥ §6Prime").setScore(10);
+            scoreboardManager.setLine(10, " §8» §6PRime");
         }else if(permissionPlayer.hasPermissionGroup("YouTuber")){
-            objective.getScore("  §8➥ §5YouTuber").setScore(10);
+            scoreboardManager.setLine(10, " §8» §5YouTuber");
         }else if(permissionPlayer.hasPermissionGroup("Premium+")){
-            objective.getScore("  §8➥ §aPremium§6+").setScore(10);
+            scoreboardManager.setLine(10, " §8» §ePremium§6+");
         }else if(permissionPlayer.hasPermissionGroup("Head")){
-            objective.getScore("  §8➥ §3Head").setScore(10);
+            scoreboardManager.setLine(10, " §8» §3Head");
         }else {
-            objective.getScore("  §8➥ §7Spieler").setScore(10);
+            scoreboardManager.setLine(10, " §8» §7Spieler");
         }
-        objective.getScore("§1").setScore(9);
-        objective.getScore(" §8» §7Coins").setScore(8);
-        objective.getScore(" §8➥ §3§l" + new CoinsAPI().getCoinsSpigot(player)).setScore(7);
-        objective.getScore("§2").setScore(6);
-        objective.getScore(" §8» §7Hoster").setScore(5);
-        objective.getScore(" §8➥ §3§lVenocix.de").setScore(4);
-        objective.getScore("§4").setScore(3);
-        objective.getScore("§8§m----------------§7").setScore(2);
+            scoreboardManager.setLine(9, "§1");
+            scoreboardManager.setLine(8, "§8» §7Coins");
+            scoreboardManager.setLine(7, " §8➥ §3§l" + new CoinsAPI().getCoinsSpigot(player));
+            scoreboardManager.setLine(6, "§2");
+            scoreboardManager.setLine(5, " §8» §7Hoster");
+            scoreboardManager.setLine(4, " §8➥ §3§lVenocix.de");
+            scoreboardManager.setLine(3, "§4");
+            scoreboardManager.setLine(2, "§8§m----------------§7");
 
-        player.setScoreboard(scoreboard);
+
+        for(Player all : Bukkit.getOnlinePlayers()){
+
+            String team = "02Spieler";
+
+            if(permissionPlayer.hasPermissionGroup("Spieler"))
+                team = "02Spieler";
+            else if(permissionPlayer.hasPermissionGroup("Admin"))
+                team = "01Admin";
+
+            Team t = scoreboard.getTeam(team);
+            if(t == null) t =scoreboard.registerNewTeam(team);
+            t.addEntry(all.getName());
+            all.setDisplayName(t.getPrefix()  + player.getName());
+        }
 
     }
 
@@ -116,3 +135,4 @@ public class Data {
     }
 
 }
+

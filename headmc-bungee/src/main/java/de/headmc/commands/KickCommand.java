@@ -10,6 +10,7 @@ public class KickCommand extends Command {
 
     public KickCommand(String name) {
         super(name);
+
     }
 
     @Override
