@@ -3,6 +3,7 @@ package de.headmc.lobby;
 import de.headmc.commands.BuildCommand;
 import de.headmc.commands.SetupCommand;
 import de.headmc.core.data.Data;
+import de.headmc.core.manager.SettingsManager;
 import de.headmc.core.sql.MySQL;
 import de.headmc.effects.SpawnParticles;
 import de.headmc.listener.CancelledEvents;
@@ -28,7 +29,6 @@ public class Lobby extends JavaPlugin {
         init();
 
         System.out.println(Data.NETWORK_PREFIX + "Lobby wird gestartet!");
-        new SpawnParticles().spawnParticles();
 
         new MySQL("localhost", "headmc", "admin", "Minecraft05!");
 

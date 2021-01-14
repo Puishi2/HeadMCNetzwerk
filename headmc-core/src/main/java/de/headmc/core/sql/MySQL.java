@@ -80,7 +80,7 @@ public class MySQL {
 
     public static void createTables() {
         update("CREATE TABLE IF NOT EXISTS coins (UUID varchar(64), coins varchar(64));");
-        update("CREATE TABLE IF NOT EXISTS settings (UUID varchar(64), sounds INT);");
+        update("CREATE TABLE IF NOT EXISTS settings (UUID varchar(64), sounds INT, particle INT, player INT);");
     }
 
     public static Connection getConnection() {

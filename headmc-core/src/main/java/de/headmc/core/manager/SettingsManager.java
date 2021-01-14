@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.UUID;
 
 public class SettingsManager {
 
@@ -28,7 +29,7 @@ public class SettingsManager {
     public void createPlayer(Player player) {
         if (!exists(player)) {
             try {
-                PreparedStatement State = MySQL.getConnection().prepareStatement("INSERT INTO settings VALUES ('" + player.getUniqueId() + "', 1);");
+                PreparedStatement State = MySQL.getConnection().prepareStatement("INSERT INTO settings VALUES ('" + player.getUniqueId() + "', '1', '1', '1');");
                 State.execute();
                 State.close();
             } catch (SQLException exception) {
@@ -38,22 +39,24 @@ public class SettingsManager {
         }
     }
 
-    public static Integer getSoundSettings(String uuid) {
-        ResultSet resultSet = MySQL.getSqlData("SELECT sounds FROM settings WHERE UUID ='" + uuid + "'");
-        Integer o = 0;
+    public static int getSetting(String setting, String uuid) {
         try {
-            while (resultSet.next()) {
-                o = resultSet.getInt("sounds");
-            }
-            resultSet.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
+            PreparedStatement State = MySQL.getConnection().prepareStatement("SELECT * FROM settings WHERE UUID='" + uuid + "';");
+            ResultSet Result = State.executeQuery();
+            Result.next();
+            int stats1 = Result.getInt(setting);
+            Result.close();
+            State.close();
+            return stats1;
+        } catch (SQLException exception) {
+            Bukkit.getConsoleSender().sendMessage("" + exception.getErrorCode());
+            Bukkit.getConsoleSender().sendMessage("" + exception.getMessage());
+            return 0;
         }
-        return o;
     }
 
-    public void setSoundSettings(String uuid, int zahl) {
-        MySQL.update("UPDATE settings SET sounds ='" + zahl + "' WHERE UUID='" + uuid + "'");
+    public static void setSetting(Player player, String setting, int value) {
+        MySQL.update("UPDATE settings SET " + setting + "='" + value + "' WHERE UUID='" + player.getUniqueId() + "'");
     }
 
 }

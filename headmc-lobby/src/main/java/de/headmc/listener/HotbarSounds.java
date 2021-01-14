@@ -14,8 +14,8 @@ public class HotbarSounds implements Listener {
 
         Player player = event.getPlayer();
 
-        if(SettingsManager.getSoundSettings(player.getUniqueId().toString()) == 1) {
-            player.playSound(player.getLocation(), Sound.NOTE_STICKS, 1, 1);
+        if(SettingsManager.getSetting("sounds", player.getUniqueId().toString()) == 1) {
+            player.playSound(player.getLocation(), Sound.NOTE_STICKS, 1,1);
         } else {
             return;
         }

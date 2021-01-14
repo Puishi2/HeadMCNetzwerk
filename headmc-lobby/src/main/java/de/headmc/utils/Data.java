@@ -30,6 +30,7 @@ import java.util.ArrayList;
 public class Data {
 
     public static ArrayList<Player> build = new ArrayList<>();
+    public static ArrayList<Player> hidePlayer = new ArrayList<>();
 
     public void loadJoinitems(Player player){
 

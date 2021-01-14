@@ -3,14 +3,18 @@ package de.headmc.listener;
 import de.headmc.core.api.CoinsAPI;
 import de.headmc.core.manager.SettingsManager;
 import de.headmc.core.player.HeadMCPlayer;
+import de.headmc.effects.SpawnParticles;
 import de.headmc.utils.Data;
 import de.headmc.utils.LocationManager;
+import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+
+import java.util.ArrayList;
 
 public class PlayerJoinListener implements Listener {
 
@@ -25,6 +29,17 @@ public class PlayerJoinListener implements Listener {
         player.setFoodLevel(20);
         player.setGameMode(GameMode.ADVENTURE);
         player.setLevel(2021);
+        player.setHealthScale(6);
+
+        if(SettingsManager.getSetting("player", player.getUniqueId().toString()) == 0) {
+            Data.hidePlayer.forEach(hider -> {
+                hider.hidePlayer(player);
+            });
+        } else {
+            Data.hidePlayer.forEach(hider -> {
+                hider.showPlayer(player);
+            });
+        }
 
         new Data().loadJoinitems(player);
 
@@ -33,6 +48,10 @@ public class PlayerJoinListener implements Listener {
         }
         if(!new SettingsManager().exists(player)) {
             new SettingsManager().createPlayer(player);
+        }
+
+        if(SettingsManager.getSetting("particle", player.getUniqueId().toString()) == 1) {
+            new SpawnParticles().spawnParticles();
         }
 
         player.teleport(new LocationManager().getLocation("spawn"));

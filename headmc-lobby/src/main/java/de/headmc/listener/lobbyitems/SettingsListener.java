@@ -7,6 +7,7 @@ import de.headmc.core.manager.SettingsManager;
 import de.headmc.core.player.HeadMCPlayer;
 import eu.thesimplecloud.api.CloudAPI;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -59,12 +60,7 @@ public class SettingsListener implements Listener {
                 Inventory inventory = InventoryBuilder.createInventory(player, 54, "§8» §cEinstellungen");
                 InventoryBuilder.setInvRand(inventory, player);
 
-                if(SettingsManager.getSoundSettings(player.getUniqueId().toString()) == 1) {
-                    inventory.setItem(20, new ItemManager(Material.FISHING_ROD).setDisplayName("§8» §cHotbar-Sounds §8(§aAktiviert§8)").toItemStack());
-                } else {
-                    inventory.setItem(20, new ItemManager(Material.FISHING_ROD).setDisplayName("§8» §cHotbar-Sounds §8(§cDeaktiviert§8)").toItemStack());
-                }
-
+                inventory.setItem(20, new ItemManager(Material.FISHING_ROD).setDisplayName("§8» §cHotbar-Sounds").toItemStack());
                 inventory.setItem(22, new ItemManager(Material.ENDER_PEARL).setDisplayName("§8» §cSichtbarkeit").toItemStack());
                 inventory.setItem(24, new ItemManager(Material.FLINT).setDisplayName("§8» §cPartikel").toItemStack());
 
@@ -139,18 +135,108 @@ public class SettingsListener implements Listener {
 
         if(event.getInventory().getName().equalsIgnoreCase("§8» §cEinstellungen")) {
 
-            if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §cHotbar-Sounds §8(§aAktiviert§8)")) {
+            if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §cHotbar-Sounds")) {
 
-                if(SettingsManager.getSoundSettings(player.getUniqueId().toString()) == 1) {
-                    new SettingsManager().setSoundSettings(player.getUniqueId().toString(), 0);
-                    player.sendMessage(Data.NETWORK_PREFIX + "Du hast die Hotbar-Sounds deaktiviert!");
-                    player.closeInventory();
-                }
-                if(SettingsManager.getSoundSettings(player.getUniqueId().toString()) == 0) {
-                    new SettingsManager().setSoundSettings(player.getUniqueId().toString(), 1);
-                    player.sendMessage(Data.NETWORK_PREFIX + "Du hast die Hotbar-Sounds aktiviert!");
-                    player.closeInventory();
-                }
+                Inventory inventory = InventoryBuilder.createInventory(player, 9, "§8» §cHotbar-Sounds §8* §cEinstellungen");
+
+                inventory.setItem(2, new ItemManager(Material.INK_SACK).setDisplayName("§8» §aAktivieren").setDurability((short) 10).toItemStack());
+                inventory.setItem(6, new ItemManager(Material.INK_SACK).setDurability((short) 1).setDisplayName("§8» §cDeaktivieren").toItemStack());
+
+                player.openInventory(inventory);
+
+            } else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §cSichtbarkeit")) {
+
+                Inventory inventory = InventoryBuilder.createInventory(player, 9, "§8» §cSichtbarkeit §8* §cEinstellungen");
+
+                inventory.setItem(2, new ItemManager(Material.INK_SACK).setDisplayName("§8» §aAktivieren").setDurability((short) 10).toItemStack());
+                inventory.setItem(6, new ItemManager(Material.INK_SACK).setDurability((short) 1).setDisplayName("§8» §cDeaktivieren").toItemStack());
+
+                player.openInventory(inventory);
+
+            } else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §cPartikel")) {
+
+                Inventory inventory = InventoryBuilder.createInventory(player, 9, "§8» §cPartikel §8* §cEinstellungen");
+
+                inventory.setItem(2, new ItemManager(Material.INK_SACK).setDisplayName("§8» §aAktivieren").setDurability((short) 10).toItemStack());
+                inventory.setItem(6, new ItemManager(Material.INK_SACK).setDurability((short) 1).setDisplayName("§8» §cDeaktivieren").toItemStack());
+
+                player.openInventory(inventory);
+
+            }
+
+        }
+
+    }
+
+    @EventHandler
+    public void onInvClick3(final InventoryClickEvent event) {
+
+        Player player = (Player) event.getWhoClicked();
+        HeadMCPlayer headMCPlayer = new HeadMCPlayer(player.getName(), player.getUniqueId());
+
+        if (event.getCurrentItem() == null) return;
+        if (event.getCurrentItem().getItemMeta() == null) return;
+        if (event.getCurrentItem().getItemMeta().getDisplayName() == null) return;
+
+        if(event.getInventory().getName().equalsIgnoreCase("§8» §cHotbar-Sounds §8* §cEinstellungen")) {
+
+            if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §aAktivieren")) {
+
+                SettingsManager.setSetting(player, "sounds", 1);
+                player.closeInventory();
+                player.sendMessage(Data.NETWORK_PREFIX + "Du hast die Einstellungen geändert!");
+                player.playSound(player.getLocation(), Sound.LEVEL_UP, 1, 1);
+
+            } else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §cDeaktivieren")) {
+
+                SettingsManager.setSetting(player, "sounds", 0);
+                player.closeInventory();
+                player.sendMessage(Data.NETWORK_PREFIX + "Du hast die Einstellungen geändert!");
+                player.playSound(player.getLocation(), Sound.LEVEL_UP, 1, 1);
+
+            }
+
+        } else if(event.getInventory().getName().equalsIgnoreCase("§8» §cSichtbarkeit §8* §cEinstellungen")) {
+
+            if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §aAktivieren")) {
+
+                SettingsManager.setSetting(player, "player", 1);
+                player.closeInventory();
+                player.sendMessage(Data.NETWORK_PREFIX + "Du hast die Einstellungen geändert!");
+                player.playSound(player.getLocation(), Sound.LEVEL_UP, 1, 1);
+
+            } else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §cDeaktivieren")) {
+
+                SettingsManager.setSetting(player, "player", 0);
+                player.closeInventory();
+                player.sendMessage(Data.NETWORK_PREFIX + "Du hast die Einstellungen geändert!");
+                player.playSound(player.getLocation(), Sound.LEVEL_UP, 1, 1);
+
+            }
+
+        } else if(event.getInventory().getName().equalsIgnoreCase("§8» §cPartikel §8* §cEinstellungen")) {
+
+            if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §aAktivieren")) {
+
+                SettingsManager.setSetting(player, "particle", 1);
+                player.closeInventory();
+                player.sendMessage(Data.NETWORK_PREFIX + "Du hast die Einstellungen geändert!");
+                player.playSound(player.getLocation(), Sound.LEVEL_UP, 1, 1);
+
+                de.headmc.utils.Data.hidePlayer.forEach(hider -> {
+                    hider.showPlayer(player);
+                });
+
+            } else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §cDeaktivieren")) {
+
+                SettingsManager.setSetting(player, "particle", 0);
+                player.closeInventory();
+                player.sendMessage(Data.NETWORK_PREFIX + "Du hast die Einstellungen geändert!");
+                player.playSound(player.getLocation(), Sound.LEVEL_UP, 1, 1);
+
+                de.headmc.utils.Data.hidePlayer.forEach(hider -> {
+                    hider.hidePlayer(player);
+                });
 
             }
 
