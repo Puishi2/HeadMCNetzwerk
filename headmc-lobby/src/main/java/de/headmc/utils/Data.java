@@ -66,35 +66,35 @@ public class Data {
         scoreboardManager.setLine(12, "§3");
         scoreboardManager.setLine(11, " §8» §7Rang");
         if(permissionPlayer.hasPermissionGroup("Admin")) {
-            scoreboardManager.setLine(10, " §8» §4Admin");
+            scoreboardManager.setLine(10, " §8➥ §4Admin");
         } else if(permissionPlayer.hasPermissionGroup("SrDeveloper")) {
-            scoreboardManager.setLine(10, " §8» §bSrDeveloper");
+            scoreboardManager.setLine(10, " §8➥ §bSrDeveloper");
         } else if(permissionPlayer.hasPermissionGroup("Developer")){
-            scoreboardManager.setLine(10, " §8» §bDeveloper");
+            scoreboardManager.setLine(10, " §8➥ §bDeveloper");
         }else if(permissionPlayer.hasPermissionGroup("Builder")){
-            scoreboardManager.setLine(10, " §8» §2Builder");
+            scoreboardManager.setLine(10, " §8➥ §2Builder");
         }else if(permissionPlayer.hasPermissionGroup("Supporter")){
-            scoreboardManager.setLine(10, " §8» §3Supporter");
+            scoreboardManager.setLine(10, " §8➥ §3Supporter");
         }else if(permissionPlayer.hasPermissionGroup("Moderator")){
-            scoreboardManager.setLine(10, " §8» §9Moderator");
+            scoreboardManager.setLine(10, " §8➥ §9Moderator");
         }else if(permissionPlayer.hasPermissionGroup("SrModerator")){
-            scoreboardManager.setLine(10, " §8» §9SrModerator");
+            scoreboardManager.setLine(10, " §8➥ §9SrModerator");
         }else if(permissionPlayer.hasPermissionGroup("Freund")){
-            scoreboardManager.setLine(10, " §8» §fFreund");
+            scoreboardManager.setLine(10, " §8➥ §fFreund");
         }else if(permissionPlayer.hasPermissionGroup("SrContent")){
-            scoreboardManager.setLine(10, " §8» §cSrContent");
+            scoreboardManager.setLine(10, " §8➥ §cSrContent");
         }else if(permissionPlayer.hasPermissionGroup("Content")){
-            scoreboardManager.setLine(10, " §8» §cContent");
+            scoreboardManager.setLine(10, " §8➥ §cContent");
         }else if(permissionPlayer.hasPermissionGroup("Prime")){
-            scoreboardManager.setLine(10, " §8» §6PRime");
+            scoreboardManager.setLine(10, " §8➥ §6PRime");
         }else if(permissionPlayer.hasPermissionGroup("YouTuber")){
-            scoreboardManager.setLine(10, " §8» §5YouTuber");
+            scoreboardManager.setLine(10, " §8➥ §5YouTuber");
         }else if(permissionPlayer.hasPermissionGroup("Premium+")){
-            scoreboardManager.setLine(10, " §8» §ePremium§6+");
+            scoreboardManager.setLine(10, " §8➥ §ePremium§6+");
         }else if(permissionPlayer.hasPermissionGroup("Head")){
-            scoreboardManager.setLine(10, " §8» §3Head");
+            scoreboardManager.setLine(10, " §8➥ §3Head");
         }else {
-            scoreboardManager.setLine(10, " §8» §7Spieler");
+            scoreboardManager.setLine(10, " §8➥ §7Spieler");
         }
             scoreboardManager.setLine(9, "§1");
             scoreboardManager.setLine(8, "§8» §7Coins");
