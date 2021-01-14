@@ -1,6 +1,7 @@
 package de.headmc.listener.lobbyitems;
 
 import de.headmc.core.builder.InventoryBuilder;
+import de.headmc.core.manager.Base64;
 import de.headmc.core.manager.ItemManager;
 import de.headmc.core.player.HeadMCPlayer;
 import de.headmc.utils.LocationManager;
@@ -33,8 +34,20 @@ public class NavigatorListener implements Listener {
 
             InventoryBuilder.setInvRand(inventory, player);
 
-            inventory.setItem(31, new ItemManager(Material.FIREWORK).addEnchant(Enchantment.THORNS, 3)
+            inventory.setItem(40, new ItemManager(Material.FIREWORK_CHARGE).addEnchant(Enchantment.THORNS, 3)
                     .addLoreLine("§8» §7Teleportiere dich zum Spawn.").setFlags().setDisplayName("§a§lSpawn").toItemStack());
+            inventory.setItem(12, new ItemManager(Base64.getSkull("http://textures.minecraft.net/texture/6fb290a13df88267ea5f5fcf796b6157ff64ccee5cd39d469724591babeed1f6"))
+                    .setDisplayName("§8» §cBedWars").addLoreLine("§8» §7Teleportiere dich zu BedWars.").toItemStack());
+            inventory.setItem(14, new ItemManager(Base64.getSkull("http://textures.minecraft.net/texture/c95d37993e594082678472bf9d86823413c250d4332a2c7d8c52de4976b362"))
+                    .setDisplayName("§8» §2SkyWars").addLoreLine("§8» §7Teleportiere dich zu SkyWars.").toItemStack());
+            inventory.setItem(19, new ItemManager(Base64.getSkull("http://textures.minecraft.net/texture/3ed1aba73f639f4bc42bd48196c715197be2712c3b962c97ebf9e9ed8efa025"))
+                    .setDisplayName("§8» §cKommt bald...").toItemStack());
+            inventory.setItem(25, new ItemManager(Base64.getSkull("http://textures.minecraft.net/texture/3ed1aba73f639f4bc42bd48196c715197be2712c3b962c97ebf9e9ed8efa025"))
+                    .setDisplayName("§8» §cKommt bald...").toItemStack());
+            inventory.setItem(30, new ItemManager(Base64.getSkull("http://textures.minecraft.net/texture/a6cc486c2be1cb9dfcb2e53dd9a3e9a883bfadb27cb956f1896d602b4067"))
+                    .setDisplayName("§8» §5Lottery").addLoreLine("§8» §7Teleportiere dich zur Lottery.").toItemStack());
+            inventory.setItem(32, new ItemManager(Base64.getSkull("http://textures.minecraft.net/texture/d5c6dc2bbf51c36cfc7714585a6a5683ef2b14d47d8ff714654a893f5da622"))
+                    .setDisplayName("§8» §6Case Opening").addLoreLine("§8» §7Teleportiere dich zu Case Opening.").toItemStack());
 
             player.openInventory(inventory);
 

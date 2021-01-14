@@ -109,7 +109,7 @@ public class Data {
         new BukkitRunnable() {
             @Override
             public void run() {
-                ActionbarManager.setActionBar(player, "§8» §7Spielzeit §8× §30 min §8| §7Clan §8× §cKein Clan");
+                ActionbarManager.setActionBar(player, "§8» §7Spielzeit §8× §30 min §8┃ §7Clan §8× §cKein Clan");
             }
         }.runTaskTimer(Lobby.getInstance(), 0, 40);
 

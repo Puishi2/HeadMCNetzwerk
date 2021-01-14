@@ -1,6 +1,7 @@
 package de.headmc.listener;
 
 import de.headmc.core.api.CoinsAPI;
+import de.headmc.core.manager.ActionbarManager;
 import de.headmc.core.manager.SettingsManager;
 import de.headmc.core.player.HeadMCPlayer;
 import de.headmc.effects.SpawnParticles;
@@ -31,6 +32,8 @@ public class PlayerJoinListener implements Listener {
         player.setLevel(2021);
         player.setHealthScale(6);
 
+        ActionbarManager.setTitle(player, "§8✗ §3HeadMC.de §8✗", "§7Willkommen auf HeadMC!", 10, 40, 10);
+
         if(SettingsManager.getSetting("player", player.getUniqueId().toString()) == 0) {
             Data.hidePlayer.forEach(hider -> {
                 hider.hidePlayer(player);
@@ -48,10 +51,6 @@ public class PlayerJoinListener implements Listener {
         }
         if(!new SettingsManager().exists(player)) {
             new SettingsManager().createPlayer(player);
-        }
-
-        if(SettingsManager.getSetting("particle", player.getUniqueId().toString()) == 1) {
-            new SpawnParticles().spawnParticles();
         }
 
         player.teleport(new LocationManager().getLocation("spawn"));

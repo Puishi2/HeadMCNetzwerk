@@ -14,6 +14,7 @@ import de.headmc.listener.lobbyitems.NavigatorListener;
 import de.headmc.listener.lobbyitems.SettingsListener;
 import de.headmc.listener.lobbyitems.gadgets.Enterhaken;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -29,6 +30,8 @@ public class Lobby extends JavaPlugin {
         init();
 
         System.out.println(Data.NETWORK_PREFIX + "Lobby wird gestartet!");
+
+        new SpawnParticles().spawnParticles();
 
         new MySQL("localhost", "headmc", "admin", "Minecraft05!");
 

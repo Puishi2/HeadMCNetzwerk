@@ -24,10 +24,30 @@ public class SetupCommand implements CommandExecutor {
                     new LocationManager().saveLocation(player, "spawn");
                     headMCPlayer.sendMessageToSpigotPlayer(player, "Du hast die Location gesetzt!");
 
+                } else if(args[0].equalsIgnoreCase("bedwars")) {
+
+                    new LocationManager().saveLocation(player, "bedwars");
+                    headMCPlayer.sendMessageToSpigotPlayer(player, "Du hast die Location gesetzt!");
+
+                } else if(args[0].equalsIgnoreCase("skywars")) {
+
+                    new LocationManager().saveLocation(player, "skywars");
+                    headMCPlayer.sendMessageToSpigotPlayer(player, "Du hast die Location gesetzt!");
+
+                } else if(args[0].equalsIgnoreCase("lottery")) {
+
+                    new LocationManager().saveLocation(player, "lottery");
+                    headMCPlayer.sendMessageToSpigotPlayer(player, "Du hast die Location gesetzt!");
+
+                } else if(args[0].equalsIgnoreCase("case")) {
+
+                    new LocationManager().saveLocation(player, "case");
+                    headMCPlayer.sendMessageToSpigotPlayer(player, "Du hast die Location gesetzt!");
+
                 }
 
             } else {
-                headMCPlayer.sendMessageToSpigotPlayer(player, "§cBenutze /setup <Spawn,...>!");
+                headMCPlayer.sendMessageToSpigotPlayer(player, "§cBenutze /setup <Spawn, BedWars, SkyWars, Lottery, Case>!");
             }
 
         } else {
