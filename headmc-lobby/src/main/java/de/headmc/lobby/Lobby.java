@@ -11,6 +11,8 @@ import de.headmc.listener.PlayerJoinListener;
 import de.headmc.listener.lobbyitems.ExtraListener;
 import de.headmc.listener.lobbyitems.NavigatorListener;
 import de.headmc.listener.lobbyitems.SettingsListener;
+import de.headmc.listener.lobbyitems.gadgets.Booster;
+import de.headmc.listener.lobbyitems.gadgets.Enderperle;
 import de.headmc.listener.lobbyitems.gadgets.Enterhaken;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -52,6 +54,8 @@ public class Lobby extends JavaPlugin {
         pluginManager.registerEvents(new Enterhaken(), this);
         pluginManager.registerEvents(new SettingsListener(), this);
         pluginManager.registerEvents(new HotbarSounds(), this);
+        pluginManager.registerEvents(new Enderperle(), this);
+        pluginManager.registerEvents(new Booster(), this);
 
         getCommand("build").setExecutor(new BuildCommand());
         getCommand("setup").setExecutor(new SetupCommand());

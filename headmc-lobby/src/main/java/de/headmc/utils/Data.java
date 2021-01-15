@@ -15,12 +15,12 @@ import eu.thesimplecloud.api.player.ICloudPlayer;
 import eu.thesimplecloud.api.player.SimpleCloudPlayer;
 import eu.thesimplecloud.module.permission.PermissionPool;
 import eu.thesimplecloud.module.permission.player.IPermissionPlayer;
-import org.bukkit.Bukkit;
-import org.bukkit.GameMode;
-import org.bukkit.Material;
+import org.bukkit.*;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.*;
 
@@ -60,16 +60,15 @@ public class Data {
 
     public void createScoreboard(HeadMCPlayer headMCPlayer, Player player) {
 
-
+        /*
         ScoreboardManager scoreboardManager = new ScoreboardManager();
-        Scoreboard scoreboard = player.getScoreboard();
+        Scoreboard scoreboard1 = player.getScoreboard();
 
         scoreboardManager.createTeam(player.getScoreboard(), "01Admin");
         scoreboardManager.createTeam(player.getScoreboard(), "02Spieler");
 
         scoreboard.getTeam("01Admin").setPrefix("§4Admin §8| §4");
-        scoreboard
-                .getTeam("02Spieler").setPrefix("§7");
+        scoreboard.getTeam("02Spieler").setPrefix("§7");
 
         IPermissionPlayer permissionPlayer = PermissionPool.getInstance().getPermissionPlayerManager().getCachedPermissionPlayer(player.getUniqueId());
 
@@ -115,24 +114,30 @@ public class Data {
             scoreboardManager.setLine(4, " §8➥ §3§lVenocix.de");
             scoreboardManager.setLine(3, "§4");
             scoreboardManager.setLine(2, "§8§m----------------§7");
+         */
+
+        Scoreboard scoreboard = Bukkit.getScoreboardManager().getNewScoreboard();
+        Objective objective = scoreboard.registerNewObjective("aaa", "bbb");
+
+        objective.setDisplaySlot(DisplaySlot.SIDEBAR);
+        objective.setDisplayName("§8✗ §3§lHeadMC.de §8✗");
+
+        objective.getScore("").setScore(13);
+        objective.getScore("").setScore(12);
+        objective.getScore("").setScore(11);
+        objective.getScore("").setScore(10);
+        objective.getScore("").setScore(9);
+        objective.getScore("").setScore(8);
+        objective.getScore("").setScore(7);
+        objective.getScore("").setScore(6);
+        objective.getScore("").setScore(5);
+        objective.getScore("").setScore(4);
+        objective.getScore("").setScore(3);
+        objective.getScore("").setScore(2);
+        objective.getScore("").setScore(1);
+        objective.getScore("").setScore(0);
 
 
-        for(Player all : Bukkit.getOnlinePlayers()){
-
-            String team = "02Spieler";
-
-            if(permissionPlayer.hasPermissionGroup("Spieler"))
-                team = "02Spieler";
-            else if(permissionPlayer.hasPermissionGroup("Admin"))
-                team = "01Admin";
-
-            Team t = scoreboard.getTeam(team);
-            if(t == null) t =scoreboard.registerNewTeam(team);
-            t.addEntry(all.getName());
-            all.setDisplayName(t.getPrefix()  + player.getName());
-
-            scoreboardManager.setBoard(player);
-        }
 
     }
 
@@ -144,6 +149,27 @@ public class Data {
                 ActionbarManager.setActionBar(player, "§8» §7Spielzeit §8× §30 min §8┃ §7Clan §8× §cKein Clan");
             }
         }.runTaskTimer(Lobby.getInstance(), 0, 40);
+
+    }
+
+    public void navigatorTeleport(Player player, Location location) {
+
+        player.playSound(player.getLocation(), Sound.AMBIENCE_THUNDER, 5, 10);
+
+        player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 1, 1));
+
+        player.setVelocity(new org.bukkit.util.Vector(0, 30, 0));
+
+        player.playSound(player.getLocation(), Sound.DOOR_CLOSE, 100, 100);
+
+        Bukkit.getScheduler().scheduleSyncDelayedTask(Lobby.getInstance(), new Runnable() {
+            @Override
+            public void run() {
+                player.playSound(player.getLocation(), Sound.LEVEL_UP, 10, 10);
+                player.teleport(location);
+                player.removePotionEffect(PotionEffectType.BLINDNESS);
+            }
+        }, 15L);
 
     }
 
