@@ -28,18 +28,10 @@ public class PlayerJoinListener implements Listener {
         IPermissionPlayer permissionPlayer = PermissionPool.getInstance().getPermissionPlayerManager().getCachedPermissionPlayer(player.getUniqueId());
 
 
+       new Data().sendActionbar(player);
         HeadMCPlayer headMCPlayer = new HeadMCPlayer(player.getName(), player.getUniqueId());
+        new Data().loadedefaultsSettings(player);
         event.setJoinMessage(null);
-        player.setHealth(20);
-        player.setFoodLevel(20);
-        player.setGameMode(GameMode.ADVENTURE);
-        player.setLevel(2021);
-        player.setHealthScale(6);
-
-        ActionbarManager.setTitle(player, "§8✗ §3HeadMC.de §8✗", "§7Willkommen auf HeadMC!", 10, 40, 10);
-
-
-
 
 
         if(SettingsManager.getSetting("player", player.getUniqueId().toString()) == 0) {

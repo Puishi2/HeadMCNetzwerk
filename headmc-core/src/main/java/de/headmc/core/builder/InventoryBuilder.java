@@ -21,7 +21,6 @@ public class InventoryBuilder {
         for (int i =0;i<54;i++){
             inventory.setItem(i,blackPane);
         }
-
         inventory.setItem(0, bluePane);
         inventory.setItem(1, bluePane);
         inventory.setItem(7, bluePane);

@@ -3,7 +3,6 @@ package de.headmc.lobby;
 import de.headmc.commands.BuildCommand;
 import de.headmc.commands.SetupCommand;
 import de.headmc.core.data.Data;
-import de.headmc.core.manager.SettingsManager;
 import de.headmc.core.sql.MySQL;
 import de.headmc.effects.SpawnParticles;
 import de.headmc.listener.CancelledEvents;
@@ -19,6 +18,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Lobby extends JavaPlugin {
+
 
     public static Lobby instance;
 

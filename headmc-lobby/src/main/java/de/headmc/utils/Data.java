@@ -16,6 +16,7 @@ import eu.thesimplecloud.api.player.SimpleCloudPlayer;
 import eu.thesimplecloud.module.permission.PermissionPool;
 import eu.thesimplecloud.module.permission.player.IPermissionPlayer;
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
@@ -31,6 +32,16 @@ public class Data {
     public static ArrayList<Player> build = new ArrayList<>();
     public static ArrayList<Player> hidePlayer = new ArrayList<>();
     ScoreboardManager scoreboardManager = new ScoreboardManager();
+
+
+    public static void loadedefaultsSettings(Player player){
+
+        player.setFoodLevel(20);
+        player.setHealthScale(6);
+        ActionbarManager.setTitle(player, "§8✗ §3HeadMC.de §8✗", "§7Willkommen auf HeadMC!", 10, 40, 10);
+        player.setGameMode(GameMode.ADVENTURE);
+
+    }
 
     public void loadJoinitems(Player player){
 
@@ -119,6 +130,8 @@ public class Data {
             if(t == null) t =scoreboard.registerNewTeam(team);
             t.addEntry(all.getName());
             all.setDisplayName(t.getPrefix()  + player.getName());
+
+            scoreboardManager.setBoard(player);
         }
 
     }

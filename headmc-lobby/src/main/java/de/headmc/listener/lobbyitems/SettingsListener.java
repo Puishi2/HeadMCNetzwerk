@@ -70,6 +70,7 @@ public class SettingsListener implements Listener {
 
                 Inventory inventory = InventoryBuilder.createInventory(player, 9, "§8» §eLobbys");
 
+
                 if(CloudAPI.getInstance().getCloudServiceManager().getCloudServiceByName("Silent-Hub-1").isOnline()) {
                     inventory.setItem(8, new ItemManager(Material.EXPLOSIVE_MINECART).addLoreLine("§8» §7" + CloudAPI.getInstance().getCloudServiceManager().getCloudServiceByName("Silent-Hub-1").getOnlineCount() + " Spieler online").setDisplayName("§8» §cSilent-Hub").toItemStack());
                 } else {
