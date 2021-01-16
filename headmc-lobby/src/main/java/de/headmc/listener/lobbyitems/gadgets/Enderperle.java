@@ -21,6 +21,11 @@ public class Enderperle implements Listener {
 
     @EventHandler
     public void handlePlayerInteract(final PlayerInteractEvent event) {
+
+        if(event.getItem() == null) return;
+        if(event.getItem().getItemMeta() == null) return;
+        if(event.getItem().getItemMeta().getDisplayName() == null) return;
+
         try {
 
             if (event.getItem() != null && event.getItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §5Enderperle")) {

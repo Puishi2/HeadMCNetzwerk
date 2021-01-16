@@ -1,7 +1,6 @@
 package de.headmc.lobby;
 
-import de.headmc.commands.BuildCommand;
-import de.headmc.commands.SetupCommand;
+import de.headmc.commands.*;
 import de.headmc.core.data.Data;
 import de.headmc.core.sql.MySQL;
 import de.headmc.effects.SpawnParticles;
@@ -36,6 +35,7 @@ public class Lobby extends JavaPlugin {
         new SpawnParticles().spawnParticles();
 
         new MySQL("localhost", "headmc", "admin", "Minecraft05!");
+        new de.headmc.utils.Data().updateScoreboard();
 
     }
 
@@ -59,6 +59,9 @@ public class Lobby extends JavaPlugin {
 
         getCommand("build").setExecutor(new BuildCommand());
         getCommand("setup").setExecutor(new SetupCommand());
+        getCommand("addcoins").setExecutor(new AddCoinsCommand());
+        getCommand("removecoins").setExecutor(new RemoveCoinsCommand());
+        getCommand("setcoins").setExecutor(new SetCoinsCommand());
 
     }
 

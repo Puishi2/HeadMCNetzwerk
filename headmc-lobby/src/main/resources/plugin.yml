@@ -5,3 +5,6 @@ main: de.headmc.lobby.Lobby
 commands:
   setup:
   build:
+  addcoins:
+  removecoins:
+  setcoins:

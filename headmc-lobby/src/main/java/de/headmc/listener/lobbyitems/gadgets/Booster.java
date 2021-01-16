@@ -22,6 +22,10 @@ public class Booster implements Listener {
         Player player = event.getPlayer();
         HeadMCPlayer headMCPlayer = new HeadMCPlayer(player.getName(), player.getUniqueId());
 
+        if(event.getItem() == null) return;
+        if(event.getItem().getItemMeta() == null) return;
+        if(event.getItem().getItemMeta().getDisplayName() == null) return;
+
         if(event.getItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §cBooster")) {
 
             if(event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {

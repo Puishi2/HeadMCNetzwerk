@@ -31,7 +31,7 @@ public class CoinsAPI {
             PreparedStatement State = MySQL.getConnection().prepareStatement("SELECT * FROM coins WHERE UUID='" + player.getUniqueId() + "';");
             ResultSet Result = State.executeQuery();
             Result.next();
-            int stats1 = Result.getInt("tickets");
+            int stats1 = Result.getInt("coins");
             Result.close();
             State.close();
             return stats1;
@@ -59,7 +59,7 @@ public class CoinsAPI {
     public void createPlayer(Player player) {
         if (!exists(player)) {
             try {
-                PreparedStatement State = MySQL.getConnection().prepareStatement("INSERT INTO coins VALUES ('" + player.getUniqueId() + "', 0);");
+                PreparedStatement State = MySQL.getConnection().prepareStatement("INSERT INTO coins VALUES ('" + player.getUniqueId() + "', 100);");
                 State.execute();
                 State.close();
             } catch (SQLException exception) {
