@@ -25,9 +25,9 @@ public class SetCoinsCommand implements CommandExecutor {
 
                     int coins = Integer.parseInt(args[1]);
                     new CoinsAPI().setCoinsSpigot(target, coins);
-                    player.sendMessage(Data.NETWORK_PREFIX + "Du hast die Coins von §3" + target.getName() + " §7auf §3" + coins + " §7gesetzt!");
+                    player.sendMessage(Data.NETWORK_PREFIX + "Du hast die Coins von §2" + target.getName() + " §7auf §2" + coins + " §7gesetzt!");
                     player.playSound(player.getLocation(), Sound.LEVEL_UP, 1, 1);
-                    target.sendMessage(Data.NETWORK_PREFIX + "Deine Coins wurden auf §3" + coins + " §7gesetzt!");
+                    target.sendMessage(Data.NETWORK_PREFIX + "Deine Coins wurden auf §2" + coins + " §7gesetzt!");
                     target.playSound(target.getLocation(), Sound.LEVEL_UP, 1, 1);
 
                 } else {

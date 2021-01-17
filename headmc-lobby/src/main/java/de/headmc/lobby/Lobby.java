@@ -7,6 +7,7 @@ import de.headmc.effects.SpawnParticles;
 import de.headmc.listener.CancelledEvents;
 import de.headmc.listener.HotbarSounds;
 import de.headmc.listener.PlayerJoinListener;
+import de.headmc.listener.chat.AsyncPlayerChatListener;
 import de.headmc.listener.lobbyitems.ExtraListener;
 import de.headmc.listener.lobbyitems.NavigatorListener;
 import de.headmc.listener.lobbyitems.SettingsListener;
@@ -56,6 +57,7 @@ public class Lobby extends JavaPlugin {
         pluginManager.registerEvents(new HotbarSounds(), this);
         pluginManager.registerEvents(new Enderperle(), this);
         pluginManager.registerEvents(new Booster(), this);
+        pluginManager.registerEvents(new AsyncPlayerChatListener(), this);
 
         getCommand("build").setExecutor(new BuildCommand());
         getCommand("setup").setExecutor(new SetupCommand());

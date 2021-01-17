@@ -25,9 +25,9 @@ public class RemoveCoinsCommand implements CommandExecutor {
 
                     int coins = Integer.parseInt(args[1]);
                     new CoinsAPI().removeCoinsSpigot(target, coins);
-                    player.sendMessage(Data.NETWORK_PREFIX + "Du hast dem Spieler §3" + target.getName() + " " + coins + " §7Coin(s) entfernt!");
+                    player.sendMessage(Data.NETWORK_PREFIX + "Du hast dem Spieler §2" + target.getName() + " " + coins + " §7Coin(s) entfernt!");
                     player.playSound(player.getLocation(), Sound.LEVEL_UP, 1, 1);
-                    target.sendMessage(Data.NETWORK_PREFIX + "Dir wurden §3" + coins + "§7 Coin(s) entfernt!");
+                    target.sendMessage(Data.NETWORK_PREFIX + "Dir wurden §2" + coins + "§7 Coin(s) entfernt!");
                     target.playSound(target.getLocation(), Sound.LEVEL_UP, 1, 1);
 
                     if(new CoinsAPI().getCoinsSpigot(player) < 0) {

@@ -27,13 +27,13 @@ public class BuildCommand implements CommandExecutor, Listener {
                     Data.build.remove(player);
                     new Data().loadJoinitems(player);
                     player.setGameMode(GameMode.ADVENTURE);
-                    player.sendMessage(de.headmc.core.data.Data.NETWORK_PREFIX + "Du hast den §3Build-Modus §7erfolgreich deaktiviert.");
+                    player.sendMessage(de.headmc.core.data.Data.NETWORK_PREFIX + "Du hast den §2Build-Modus §7erfolgreich deaktiviert.");
                     player.playSound(player.getLocation(), Sound.LEVEL_UP, 2, 2);
                 }else {
                     Data.build.add(player);
                     player.setGameMode(GameMode.CREATIVE);
                     player.getInventory().clear();
-                    player.sendMessage(de.headmc.core.data.Data.NETWORK_PREFIX + "Du hast den §3Build-Modus §7erfolgreich Aktiviert.");
+                    player.sendMessage(de.headmc.core.data.Data.NETWORK_PREFIX + "Du hast den §2Build-Modus §7erfolgreich Aktiviert.");
                     player.playSound(player.getLocation(), Sound.LEVEL_UP, 2, 2);
                 }
 

@@ -25,9 +25,9 @@ public class AddCoinsCommand implements CommandExecutor {
 
                     int coins = Integer.parseInt(args[1]);
                     new CoinsAPI().addCoinsSpigot(target, coins);
-                    player.sendMessage(Data.NETWORK_PREFIX + "Du hast dem Spieler §3" + target.getName()+ " " + coins + " §7Coin(s) hinzugefügt!");
+                    player.sendMessage(Data.NETWORK_PREFIX + "Du hast dem Spieler §2" + target.getName()+ " " + coins + " §7Coin(s) hinzugefügt!");
                     player.playSound(player.getLocation(), Sound.LEVEL_UP, 1, 1);
-                    target.sendMessage(Data.NETWORK_PREFIX + "Dir wurden §3" + coins + "§7 Coin(s) hinzugefügt!");
+                    target.sendMessage(Data.NETWORK_PREFIX + "Dir wurden §2" + coins + "§7 Coin(s) hinzugefügt!");
                     target.playSound(target.getLocation(), Sound.LEVEL_UP, 1, 1);
 
                 } else {

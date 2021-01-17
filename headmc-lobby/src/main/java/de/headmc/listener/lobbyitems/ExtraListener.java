@@ -43,9 +43,9 @@ public class ExtraListener implements Listener {
         if(event.getItem().getItemMeta() == null) return;
         if(event.getItem().getItemMeta().getDisplayName() == null) return;
 
-        if(event.getItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §3§lExtras §8× §7Rechtsclick")) {
+        if(event.getItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §2§lExtras §8× §7Rechtsclick")) {
 
-            Inventory inventory = InventoryBuilder.createInventory(player, 54, "§8» §3§lExtras");
+            Inventory inventory = InventoryBuilder.createInventory(player, 54, "§8» §2§lExtras");
             InventoryBuilder.setInvRand(inventory, player);
 
             inventory.setItem(20, new ItemManager(Material.FISHING_ROD).setDisplayName("§8» §aGadgets").toItemStack());
@@ -70,7 +70,7 @@ public class ExtraListener implements Listener {
         if(event.getCurrentItem().getItemMeta() == null) return;
         if(event.getCurrentItem().getItemMeta().getDisplayName() == null) return;
 
-        if(event.getInventory().getName().equalsIgnoreCase("§8» §3§lExtras")) {
+        if(event.getInventory().getName().equalsIgnoreCase("§8» §2§lExtras")) {
 
             if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §aGadgets")) {
 

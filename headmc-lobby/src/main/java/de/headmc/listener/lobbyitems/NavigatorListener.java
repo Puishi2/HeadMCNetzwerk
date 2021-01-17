@@ -30,9 +30,9 @@ public class NavigatorListener implements Listener {
         if(event.getItem().getItemMeta() == null) return;
         if(event.getItem().getItemMeta().getDisplayName() == null) return;
 
-        if(event.getItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §3§LNavigator §8× §7Rechtsclick")) {
+        if(event.getItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §2§LNavigator §8× §7Rechtsclick")) {
 
-            Inventory inventory = InventoryBuilder.createInventory(player, 54, "§8» §3§lNavigator §8- §7SpielModie");
+            Inventory inventory = InventoryBuilder.createInventory(player, 54, "§8» §2§lNavigator §8- §7SpielModie");
 
             InventoryBuilder.setInvRand(inventory, player);
 
@@ -66,7 +66,7 @@ public class NavigatorListener implements Listener {
         if(event.getCurrentItem().getItemMeta() == null) return;
         if(event.getCurrentItem().getItemMeta().getDisplayName() == null) return;
 
-        if(event.getInventory().getName().equalsIgnoreCase("§8» §3§lNavigator §8- §7SpielModie")){
+        if(event.getInventory().getName().equalsIgnoreCase("§8» §2§lNavigator §8- §7SpielModie")){
            if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §a§lSpawn")){
                new Data().navigatorTeleport(player, new LocationManager().getLocation("spawn"));
            } else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§c§lBedWars")){

@@ -28,9 +28,9 @@ public class SettingsListener implements Listener {
         if(event.getItem().getItemMeta() == null) return;
         if(event.getItem().getItemMeta().getDisplayName() == null) return;
 
-        if(event.getItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §3§lEinstellungen §8× §7Rechtsclick")) {
+        if(event.getItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §2§lEinstellungen §8× §7Rechtsclick")) {
 
-            Inventory inventory = InventoryBuilder.createInventory(player, 54, "§8» §3§lEinstellungen");
+            Inventory inventory = InventoryBuilder.createInventory(player, 54, "§8» §2§lEinstellungen");
             InventoryBuilder.setInvRand(inventory, player);
 
             inventory.setItem(20, new ItemManager(Material.REDSTONE_COMPARATOR).setDisplayName("§8» §cEinstellungen").toItemStack());
@@ -53,7 +53,7 @@ public class SettingsListener implements Listener {
         if (event.getCurrentItem().getItemMeta() == null) return;
         if (event.getCurrentItem().getItemMeta().getDisplayName() == null) return;
 
-        if (event.getInventory().getName().equalsIgnoreCase("§8» §3§lEinstellungen")) {
+        if (event.getInventory().getName().equalsIgnoreCase("§8» §2§lEinstellungen")) {
 
             if (event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §cEinstellungen")) {
 
