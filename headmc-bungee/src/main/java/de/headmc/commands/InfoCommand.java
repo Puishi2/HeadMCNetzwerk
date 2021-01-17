@@ -31,11 +31,11 @@ public class InfoCommand extends Command {
                         proxiedPlayer.sendMessage("§3");
                         proxiedPlayer.sendMessage("§8➥ §7Name §8× §3" + proxiedTarget.getName());
                         proxiedPlayer.sendMessage("§8➥ §7Server §8× §3" + proxiedTarget.getServer().getInfo().getName());
-                        proxiedPlayer.sendMessage("§8➥ §7Coins §8× §3");
+                        proxiedPlayer.sendMessage("§8➥ §7Coins §8× §30");
                         proxiedPlayer.sendMessage("§8➥ §7UUID §8× §3" + proxiedTarget.getUniqueId().toString());
-                        proxiedPlayer.sendMessage("§8➥ §7OnlineTime §8× §3-");
-                        proxiedPlayer.sendMessage("§8➥ §7Banpunkte §8× §3-");
-                        proxiedPlayer.sendMessage("§8➥ §7Mutepunkte §8× §3-");
+                        proxiedPlayer.sendMessage("§8➥ §7OnlineTime §8× §30 min");
+                        proxiedPlayer.sendMessage("§8➥ §7Banpunkte §8× §30");
+                        proxiedPlayer.sendMessage("§8➥ §7Mutepunkte §8× §30");
                         proxiedPlayer.sendMessage("§5");
                         proxiedPlayer.sendMessage("§8§m--------------------§8§7§5§3§9");
                     }else {

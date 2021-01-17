@@ -20,6 +20,7 @@ public class PlayerJoinListener implements Listener {
         Player player = event.getPlayer();
         IPermissionPlayer permissionPlayer = PermissionPool.getInstance().getPermissionPlayerManager().getCachedPermissionPlayer(player.getUniqueId());
 
+        new Data().setTab(player);
         new Data().sendActionbar(player);
         HeadMCPlayer headMCPlayer = new HeadMCPlayer(player.getName(), player.getUniqueId());
         new Data().loadedefaultsSettings(player);

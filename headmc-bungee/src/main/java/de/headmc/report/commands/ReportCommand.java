@@ -30,28 +30,25 @@ public class ReportCommand extends Command {
             ProxiedPlayer proxiedTarget = ProxyServer.getInstance().getPlayer(strings[0]);
             UUID uuid = player.getUniqueId();
 
-            if(strings[0].equalsIgnoreCase("login")){
-                Data.report.add(uuid);
-                player.sendMessage(Data.PROXY_PREFIX + "Du hast dich erfolgreich ins §3ReporSystem §aeingeloggt§8.");
+            if(player.hasPermission("headmc.team")) {
+                if (strings[0].equalsIgnoreCase("logout")) {
 
-            }else if(strings[0].equalsIgnoreCase("logout")){
-
-                Data.report.remove(uuid);
-                player.sendMessage(Data.PROXY_PREFIX + "Du hast dich erfolgreich ins §3ReporSystem §causgeloggt§8.");
+                    Data.report.remove(uuid);
+                    player.sendMessage(Data.PROXY_PREFIX + "Du hast dich erfolgreich ins §3ReporSystem §causgeloggt§8.");
 
 
+                } else if (strings[0].equalsIgnoreCase("login")) {
+
+                    Data.report.add(uuid);
+                    player.sendMessage(Data.PROXY_PREFIX + "Du hast dich erfolgreiech ins §3ReportSystem §aeingeloggt");
+
+
+                }
             }else{
-                return;
+                player.sendMessage(Data.PROXY_PREFIX + "Du hast §3Keine §7Rechte!");
             }
 
-            if(strings.length == 0){
-
-                player.sendMessage(Data.PROXY_PREFIX + "Du musst §3/report §8(§3Spieler§8) §8(Grund§8) §7benutzen.");
-            }
-            else if(strings.length == 1){
-                player.sendMessage(Data.PROXY_PREFIX + "Du musst §3/report §8(§3Spieler§8) §8(Grund§8) §7benutzen.");
-            }
-            else if(strings.length >1){
+            if(strings.length >1){
 
                 String reason = "";
 
@@ -64,25 +61,29 @@ public class ReportCommand extends Command {
                         player.sendMessage(Data.PROXY_PREFIX + "Du hast den Spieler §3" + proxiedTarget.getName() + "§7 erfoglreich Reportet");
 
 
+                        if(Data.report.contains(uuid)){
 
-                           for(ProxiedPlayer players : ProxyServer.getInstance().getPlayers()){
+                          for(ProxiedPlayer players : ProxyServer.getInstance().getPlayers()){
 
-                               if(Data.report.contains(uuid)){
+                              players.sendMessage("§8§m------§3ReportSystem§8§m-----");
+                              players.sendMessage("§4");
+                              players.sendMessage("§8➥ §7Name §8» §3" + proxiedTarget.getName());
+                              players.sendMessage("§8➥ §7Grund §8» §3" +reason);
+                              players.sendMessage("§8➥ §7Server §8» §3" +  proxiedTarget.getServer().getInfo().getName());
+                              players.sendMessage("§8➥ §7Ersteller §8» §3" + player.getName());
+                              players.sendMessage("§3");
+                              player.sendMessage("§8§m-------------------------------");
 
-                                   players.sendMessage("§8§m------§3ReportSystem§8§m-----");
-                                   players.sendMessage("§4");
-                                   players.sendMessage("§8➥ §7Name §8» §3" + proxiedTarget.getName());
-                                   players.sendMessage("§8➥ §7Grund §8» §3" +reason);
-                                   players.sendMessage("§8➥ §7Server §8» §3" + ProxyServer.getInstance().getServerInfo(player.getName()));
-                                   players.sendMessage("§8➥ §7Ersteller §8» §3" + player.getName());
-                                   players.sendMessage("§3");
-                                   player.sendMessage("§8§m-------------------------------");
+                          }
 
-                               }else{
-                                   return;
-                               }
+                            player.sendMessage("§8§m-------------------------------");
 
-                           }
+
+
+                        }
+
+
+
                     }else{
 
                         player.sendMessage(Data.PROXY_PREFIX + "Du kannst dich nicht selber §eReporten §7:-)");
