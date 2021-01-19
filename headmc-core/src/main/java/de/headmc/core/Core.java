@@ -1,11 +1,17 @@
 package de.headmc.core;
 
 import de.headmc.core.api.CoinsAPI;
+import de.headmc.core.api.PlayTimeAPI;
 import de.headmc.core.data.Data;
 import de.headmc.core.manager.Base64;
 import de.headmc.core.manager.ItemManager;
 import de.headmc.core.sql.MySQL;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.HashMap;
 
 public class Core extends JavaPlugin {
 
@@ -23,14 +29,24 @@ public class Core extends JavaPlugin {
         this.itemManager = itemManager;
         this.base64 = base64;
         this.coinsAPI = coinsAPI;
-        new MySQL("localhost", "headmc", "admin", "Minecraft05!");
+        new MySQL("localhost", "headmc", "admin", "UAKmN2B2OAPNTkVhjCBJ");
 
         System.out.println(data.NETWORK_PREFIX + "Core wird gestartet!");
+        register();
+    }
+
+    private void register() {
+
+        PluginManager pluginManager = Bukkit.getPluginManager();
+
+
 
     }
 
     @Override
-    public void onDisable() { }
+    public void onDisable() {
+    }
+
 
     public static Core getInstance() {
         return instance;
@@ -51,4 +67,5 @@ public class Core extends JavaPlugin {
     public CoinsAPI getCoinsAPI() {
         return coinsAPI;
     }
+
 }

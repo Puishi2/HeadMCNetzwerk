@@ -37,7 +37,7 @@ public class Lobby extends JavaPlugin {
 
         new SpawnParticles().spawnParticles();
 
-        new MySQL("localhost", "headmc", "admin", "Minecraft05!");
+        new MySQL("localhost", "headmc", "admin", "UAKmN2B2OAPNTkVhjCBJ");
         new de.headmc.utils.Data().updateScoreboard();
 
     }
