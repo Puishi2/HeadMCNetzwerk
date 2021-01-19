@@ -31,6 +31,10 @@ public class Proxy extends Plugin {
         new BanCategroy("Skin / Name", 10);
         new BanCategroy("Rassismuss", -1);
 
+        /**
+         * test
+         */
+
 
     }
 
