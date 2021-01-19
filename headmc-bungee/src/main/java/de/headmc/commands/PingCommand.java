@@ -25,12 +25,12 @@ public class PingCommand extends Command {
 
         if(strings.length ==  0){
 
-            proxiedPlayer.sendMessage(Data.PROXY_PREFIX + "Du hast einen Ping von §3" + proxiedPlayer.getPing() +"§7ms.");
+            proxiedPlayer.sendMessage(Data.PROXY_PREFIX + "Du hast einen Ping von §2" + proxiedPlayer.getPing() +"§7ms.");
 
         }
         if(strings.length ==1) {
 
-            proxiedPlayer.sendMessage(Data.PROXY_PREFIX + "Der Spieler §3" + proxiedTarget.getName() +" §7hat einen Ping von §3" + proxiedTarget.getPing() + "§7ms.");
+            proxiedPlayer.sendMessage(Data.PROXY_PREFIX + "Der Spieler §2" + proxiedTarget.getName() +" §7hat einen Ping von §2" + proxiedTarget.getPing() + "§7ms.");
 
         }
 

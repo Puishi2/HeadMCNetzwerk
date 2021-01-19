@@ -35,11 +35,11 @@ public class FindCommand extends Command {
 
 
 
-                        player.sendMessage(Data.PROXY_PREFIX + "Der Spieler §3" + target.getName()+ "§7 befindet sich auf §3" + target.getServer().getInfo().getName() + "§7.");
+                        player.sendMessage(Data.PROXY_PREFIX + "Der Spieler §2" + target.getName()+ "§7 befindet sich auf §2" + target.getServer().getInfo().getName() + "§7.");
 
                     }else{
 
-                        player.sendMessage(Data.PROXY_PREFIX + "Der angegebende §3Spieler §7ist nicht online.");
+                        player.sendMessage(Data.PROXY_PREFIX + "Der angegebende §2Spieler §7ist nicht online.");
 
                     }
 

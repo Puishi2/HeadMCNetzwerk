@@ -35,8 +35,8 @@ public class KickCommand extends Command {
                         message = message + strings[i] + " ";
                     }
 
-                    proxiedtarget.disconnect("§8✗ §3HeadMC.de §8✗ \n\n §7Du wurdest gekickt! \n §7Grund§8: §3" + message);
-                    proxiedPlayer.sendMessage(Data.PROXY_PREFIX + "Du hast den Spieler §3" + proxiedtarget.getName() + " §7gekickt!");
+                    proxiedtarget.disconnect("§8✗ §3HeadMC.de §8✗ \n\n §7Du wurdest gekickt! \n §7Grund§8: §2" + message);
+                    proxiedPlayer.sendMessage(Data.PROXY_PREFIX + "Du hast den Spieler §2" + proxiedtarget.getName() + " §7gekickt!");
 
                 } else {
                     proxiedPlayer.sendMessage(Data.PROXY_PREFIX + "§cDieser Spieler ist nicht online!");

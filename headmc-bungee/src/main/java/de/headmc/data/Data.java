@@ -1,34 +1,33 @@
 package de.headmc.data;
 
-import de.headmc.bansystem.commands.BanCommand;
 import de.headmc.bungee.Proxy;
 import de.headmc.commands.*;
-import de.headmc.report.commands.ReportCommand;
+import de.headmc.listener.ChatListener;
+import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.plugin.PluginManager;
 
 import java.util.ArrayList;
-import java.util.UUID;
 
 public class Data {
 
-
-
     public static final String PROXY_PREFIX = "§8» §l§2Proxy §8│ §7";
-    public static ArrayList<UUID> report = new ArrayList<>();
+    public static final String PROXY_NOPERMS = PROXY_PREFIX + "Dazu hast du keine Rechte!";
+    public static ArrayList<CommandSender> teamchat = new ArrayList<>();
 
     public void init(){
         PluginManager pluginManager = ProxyServer.getInstance().getPluginManager();
 
         pluginManager.registerCommand(Proxy.getInstance(), new FindCommand("find"));
         pluginManager.registerCommand(Proxy.getInstance(), new InfoCommand("info"));
-        pluginManager.registerCommand(Proxy.getInstance(), new HelpCommand("help"));
         pluginManager.registerCommand(Proxy.getInstance(), new KickCommand("kick"));
         pluginManager.registerCommand(Proxy.getInstance(), new PingCommand("ping"));
         pluginManager.registerCommand(Proxy.getInstance(), new JoinMeCommand("joinme"));
-        pluginManager.registerCommand(Proxy.getInstance(), new ReportCommand("report"));
-
-
+        pluginManager.registerCommand(Proxy.getInstance(), new HelpCommand("help", null, "hilfe"));
+        pluginManager.registerCommand(Proxy.getInstance(), new YoutubeCommand("youtube", null, "yt"));
+        pluginManager.registerCommand(Proxy.getInstance(), new PremiumPlusCommand("premium+", null, "p+"));
+        pluginManager.registerCommand(Proxy.getInstance(), new TeamChatCommand("teamchat", "headmc.team", "tc"));
+        pluginManager.registerListener(Proxy.getInstance(), new ChatListener());
 
     }
 }

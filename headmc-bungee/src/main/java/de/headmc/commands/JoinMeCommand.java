@@ -31,13 +31,13 @@ public class JoinMeCommand extends Command implements Listener {
 
             ProxiedPlayer player = (ProxiedPlayer)commandSender;
 
-            player.sendMessage(Data.PROXY_PREFIX + "Du hast den §3JoinME§7 erfolgreich gesendet.");
+            player.sendMessage(Data.PROXY_PREFIX + "Du hast das §2JoinME§7 erfolgreich gesendet.");
 
 
 
             ProxyServer.getInstance().broadcast("§8§m------------------");
             ProxyServer.getInstance().broadcast("§3");
-            ProxyServer.getInstance().broadcast("§7Der Spieler §3" + player.getName() + "§7 Spielt auf §3" + player.getServer().getInfo().getName());
+            ProxyServer.getInstance().broadcast("§7Der Spieler §2" + player.getName() + "§7 Spielt auf §2" + player.getServer().getInfo().getName());
             ProxyServer.getInstance().broadcast("§c§l Click Hier");
             ProxyServer.getInstance().broadcast("§4");
             ProxyServer.getInstance().broadcast("§8§m------------------§7");
