@@ -9,6 +9,7 @@
         <module name="headmc-lobby" />
         <module name="headmc-core" />
         <module name="headmc-bungee" />
+        <module name="headmc-bedwars" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

@@ -3,6 +3,7 @@ package de.headmc.lobby;
 import de.headmc.commands.*;
 import de.headmc.core.data.Data;
 import de.headmc.core.sql.MySQL;
+import de.headmc.dailyreward.commands.setVillagerCommand;
 import de.headmc.effects.SpawnParticles;
 import de.headmc.listener.CancelledEvents;
 import de.headmc.listener.HotbarSounds;
@@ -60,6 +61,7 @@ public class Lobby extends JavaPlugin {
         pluginManager.registerEvents(new Booster(), this);
         pluginManager.registerEvents(new PrivateServerListener(), this);
 
+        getCommand("setvillager").setExecutor(new setVillagerCommand());
         getCommand("build").setExecutor(new BuildCommand());
         getCommand("setup").setExecutor(new SetupCommand());
         getCommand("addcoins").setExecutor(new AddCoinsCommand());

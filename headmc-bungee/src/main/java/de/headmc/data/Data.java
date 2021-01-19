@@ -14,7 +14,7 @@ public class Data {
 
 
 
-    public static final String PROXY_PREFIX = "§8» §l§3Proxy §8│ §7";
+    public static final String PROXY_PREFIX = "§8» §l§2Proxy §8│ §7";
     public static ArrayList<UUID> report = new ArrayList<>();
 
     public void init(){
