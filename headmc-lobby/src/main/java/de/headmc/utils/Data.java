@@ -8,16 +8,12 @@ import de.headmc.core.manager.ItemManager;
 import de.headmc.core.manager.ScoreboardManager;
 import de.headmc.core.player.HeadMCPlayer;
 import de.headmc.lobby.Lobby;
-import eu.thesimplecloud.api.CloudAPI;
-import eu.thesimplecloud.api.event.player.permission.CloudPlayerPermissionCheckEvent;
-import eu.thesimplecloud.api.player.CloudPlayer;
-import eu.thesimplecloud.api.player.ICloudPlayer;
-import eu.thesimplecloud.api.player.SimpleCloudPlayer;
 import eu.thesimplecloud.module.permission.PermissionPool;
 import eu.thesimplecloud.module.permission.player.IPermissionPlayer;
 import net.minecraft.server.v1_8_R3.IChatBaseComponent;
 import net.minecraft.server.v1_8_R3.PacketPlayOutPlayerListHeaderFooter;
 import net.minecraft.server.v1_8_R3.PlayerConnection;
+import net.minecraft.server.v1_8_R3.ScoreboardObjective;
 import org.bukkit.*;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.enchantments.Enchantment;
@@ -27,8 +23,10 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.*;
+import org.bukkit.scoreboard.DisplaySlot;
+import org.bukkit.scoreboard.Objective;
+import org.bukkit.scoreboard.Team;
 
-import javax.swing.*;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,7 +37,6 @@ public class Data {
     public static ArrayList<Player> hidePlayer = new ArrayList<>();
     ScoreboardManager scoreboardManager = new ScoreboardManager();
     private static HashMap<Scoreboard, Player> board = new HashMap<>();
-
 
     public static void loadedefaultsSettings(Player player){
 
@@ -62,30 +59,6 @@ public class Data {
         player.getInventory().setItem(4, new ItemManager(Base64.getSkull("http://textures.minecraft.net/texture/3ed1aba73f639f4bc42bd48196c715197be2712c3b962c97ebf9e9ed8efa025")).setDisplayName("§8» §cKein Gadget").toItemStack());
         player.getInventory().setItem(7, new ItemManager(Base64.getSkull("http://textures.minecraft.net/texture/d5c6dc2bbf51c36cfc7714585a6a5683ef2b14d47d8ff714654a893f5da622")).setDisplayName("§8» §2§lExtras §8× §7Rechtsclick").toItemStack());
         player.getInventory().setItem(8, new ItemManager(Material.REDSTONE_COMPARATOR).setDisplayName("§8» §2§LEinstellungen §8× §7Rechtsclick").toItemStack());
-
-    }
-
-    public void setTab(Player p){
-
-        PlayerConnection connection = ((CraftPlayer)p).getHandle().playerConnection;
-
-
-        IChatBaseComponent tabHeader = IChatBaseComponent.ChatSerializer.a("{\"text\": \"§2§lHeadMC\"}");
-        IChatBaseComponent tabFooter = IChatBaseComponent.ChatSerializer.a("{\"text\": \"§7TeamSpeak §8» §2HeadMC.de\"}");
-
-        PacketPlayOutPlayerListHeaderFooter packet = new PacketPlayOutPlayerListHeaderFooter(tabHeader);
-
-
-        try{
-            Field f = packet.getClass().getDeclaredField("b");
-            f.setAccessible(true);
-            f.set(packet, tabFooter);
-
-        }catch (Exception e1){
-            e1.printStackTrace();
-        }finally {
-            connection.sendPacket(packet);
-        }
 
     }
 

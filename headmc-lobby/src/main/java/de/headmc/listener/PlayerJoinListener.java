@@ -5,6 +5,7 @@ import de.headmc.core.manager.SettingsManager;
 import de.headmc.core.player.HeadMCPlayer;
 import de.headmc.utils.Data;
 import de.headmc.utils.LocationManager;
+import de.headmc.utils.ScoreBoard;
 import eu.thesimplecloud.module.permission.PermissionPool;
 import eu.thesimplecloud.module.permission.player.IPermissionPlayer;
 import org.bukkit.entity.Player;
@@ -20,7 +21,6 @@ public class PlayerJoinListener implements Listener {
         Player player = event.getPlayer();
         IPermissionPlayer permissionPlayer = PermissionPool.getInstance().getPermissionPlayerManager().getCachedPermissionPlayer(player.getUniqueId());
 
-        new Data().setTab(player);
         new Data().sendActionbar(player);
         HeadMCPlayer headMCPlayer = new HeadMCPlayer(player.getName(), player.getUniqueId());
         new Data().loadedefaultsSettings(player);
@@ -44,10 +44,10 @@ public class PlayerJoinListener implements Listener {
         if (!new SettingsManager().exists(player)) {
             new SettingsManager().createPlayer(player);
         }
-
+        new ScoreBoard().setBoard(player);
         player.teleport(new LocationManager().getLocation("spawn"));
 
-        new Data().createScoreboard(headMCPlayer, player);
+        //new Data().createScoreboard(headMCPlayer, player);
 
         new Data().sendActionbar(player);
 
