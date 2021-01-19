@@ -2,6 +2,7 @@ package de.headmc.utils;
 
 import de.headmc.core.Core;
 import de.headmc.core.api.CoinsAPI;
+import de.headmc.core.api.PlayTimeAPI;
 import de.headmc.core.manager.ActionbarManager;
 import de.headmc.core.manager.Base64;
 import de.headmc.core.manager.ItemManager;
@@ -145,7 +146,7 @@ public class Data {
         new BukkitRunnable() {
             @Override
             public void run() {
-                ActionbarManager.setActionBar(player, "§8» §7Spielzeit §8× §20 min §8┃ §7Clan §8× §cKein Clan");
+                ActionbarManager.setActionBar(player, "§8» §7Spielzeit §8× §2" + "0" + " §8┃ §7Clan §8× §cKein Clan");
             }
         }.runTaskTimer(Lobby.getInstance(), 0, 40);
 
