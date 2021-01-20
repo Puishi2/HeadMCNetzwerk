@@ -9,6 +9,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.player.PlayerArmorStandManipulateEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
@@ -53,6 +54,16 @@ public class CancelledEvents implements Listener {
 
     @EventHandler
     public void onDrop(final PlayerPickupItemEvent event) {
+        Player player = event.getPlayer();
+        if(player.getGameMode() == GameMode.CREATIVE) {
+            event.setCancelled(false);
+        } else {
+            event.setCancelled(true);
+        }
+    }
+
+    @EventHandler
+    public void onArmorstand(final PlayerArmorStandManipulateEvent event) {
         Player player = event.getPlayer();
         if(player.getGameMode() == GameMode.CREATIVE) {
             event.setCancelled(false);
