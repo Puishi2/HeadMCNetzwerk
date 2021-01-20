@@ -31,10 +31,10 @@ public class JoinMeCommand extends Command implements Listener {
                 textComponent.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "abcdefghijk" + player.getServer().getInfo().getName()));
 
                 ProxyServer.getInstance().broadcast("§8§m------------------");
-                ProxyServer.getInstance().broadcast("§3");
+                ProxyServer.getInstance().broadcast("§1");
                 ProxyServer.getInstance().broadcast("§7Der Spieler §2" + player.getName() + "§7 Spielt auf §2" + player.getServer().getInfo().getName());
                 ProxyServer.getInstance().broadcast((BaseComponent) textComponent);
-                ProxyServer.getInstance().broadcast("§4");
+                ProxyServer.getInstance().broadcast("§2");
                 ProxyServer.getInstance().broadcast("§8§m------------------§7");
                 }
             }else{
