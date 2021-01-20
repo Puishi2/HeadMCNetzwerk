@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public class Data {
 
     public static final String PROXY_PREFIX = "§8» §l§2Proxy §8│ §7";
+    public static final String PARTY_PREFIX = "§8» §l§5Party §8│ §7";
     public static final String PROXY_NOPERMS = PROXY_PREFIX + "Dazu hast du keine Rechte!";
     public static ArrayList<CommandSender> teamchat = new ArrayList<>();
 
