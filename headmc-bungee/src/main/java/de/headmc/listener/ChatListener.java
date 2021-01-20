@@ -17,6 +17,9 @@ public class ChatListener implements Listener {
         if(event.getMessage().equals("/tc login")) {
             event.setCancelled(true);
         }
+        if(event.getMessage().equals("/teamchat login")) {
+            event.setCancelled(true);
+        }
     }
 
 }
