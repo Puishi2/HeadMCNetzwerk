@@ -1,3 +1,4 @@
+de\headmc\partysystem\PartyCommand.class
 de\headmc\commands\HelpCommand.class
 de\headmc\commands\PremiumPlusCommand.class
 de\headmc\commands\FindCommand.class
@@ -10,4 +11,6 @@ de\headmc\commands\KickCommand.class
 de\headmc\listener\ChatListener.class
 de\headmc\commands\YoutubeCommand.class
 de\headmc\data\Data.class
+de\headmc\partysystem\Party.class
+de\headmc\commands\ServerJoinCommand.class
 de\headmc\bungee\Proxy.class

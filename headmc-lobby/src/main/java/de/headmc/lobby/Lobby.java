@@ -47,6 +47,10 @@ public class Lobby extends JavaPlugin {
 
     }
 
+    /**
+     * Test
+     */
+
     private void init(){
         PluginManager pluginManager = Bukkit.getPluginManager();
         pluginManager.registerEvents(new PlayerJoinListener(), this);
