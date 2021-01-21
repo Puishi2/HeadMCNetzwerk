@@ -3,6 +3,9 @@ package de.headmc.data;
 import de.headmc.bungee.Proxy;
 import de.headmc.commands.*;
 import de.headmc.listener.ChatListener;
+import de.headmc.partysystem.PartyChat;
+import de.headmc.partysystem.PartyCommand;
+import de.headmc.partysystem.PartyListener;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.plugin.PluginManager;
@@ -21,6 +24,9 @@ public class Data {
 
         pluginManager.registerListener(Proxy.getInstance(), new ChatListener());
         pluginManager.registerCommand(Proxy.getInstance(), new ServerJoinCommand());
+        pluginManager.registerListener(Proxy.getInstance(), new PartyListener());
+        pluginManager.registerCommand(Proxy.getInstance(), new PartyChat());
+        pluginManager.registerCommand(Proxy.getInstance(), new PartyCommand());
         pluginManager.registerCommand(Proxy.getInstance(), new FindCommand("find"));
         pluginManager.registerCommand(Proxy.getInstance(), new InfoCommand("info"));
         pluginManager.registerCommand(Proxy.getInstance(), new KickCommand("kick"));
