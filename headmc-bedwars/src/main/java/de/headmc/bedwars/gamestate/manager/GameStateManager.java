@@ -1,43 +1,39 @@
 package de.headmc.bedwars.gamestate.manager;
 
 import de.headmc.bedwars.gamestate.EndingState;
-import de.headmc.bedwars.gamestate.GameState;
-import de.headmc.bedwars.gamestate.InGameState;
+import de.headmc.bedwars.gamestate.Gamestate;
+import de.headmc.bedwars.gamestate.IngameState;
 import de.headmc.bedwars.gamestate.Lobbystate;
+import de.headmc.bedwars.manager.ItemManager;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
 
-public class GameStateManager {
+public class GamestateManager {
 
-    private GameState[] gameStates = new GameState[3];
-    private GameState currentGameState;
+    private Gamestate[] gameStates = new Gamestate[3];
+    private Gamestate currentGameState;
 
-
-    public GameStateManager(){
-
-        gameStates[GameState.LOBBY_STATE] = new Lobbystate();
-        gameStates[GameState.INGAME_STATE] = new InGameState();
-        gameStates[GameState.ENDING_STATE] = new EndingState();
-
+    public GamestateManager(){
+        gameStates[Gamestate.LOBBY_STATE] = new Lobbystate();
+        gameStates[Gamestate.INGAME_STATE] = new IngameState();
+        gameStates[Gamestate.ENDING_STATE] = new EndingState();
     }
 
-    public void setGameStates(int gameStateIndex){
-
+    public void setGameState(int gameStateIndex){
         if(currentGameState != null)
             currentGameState.stop();
         currentGameState = gameStates[gameStateIndex];
         currentGameState.start();
-
     }
 
     public void stopCurrentGameState(){
+
         currentGameState.stop();
         currentGameState = null;
     }
 
-    public GameState[] getGameStates() {
-        return gameStates;
-    }
 
-    public GameState getCurrentGameState() {
+    public Gamestate getCurrentGameState() {
         return currentGameState;
     }
 }
