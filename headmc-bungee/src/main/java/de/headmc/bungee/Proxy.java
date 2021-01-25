@@ -18,7 +18,7 @@ public class Proxy extends Plugin {
         new Data().init();
         instance = this;
         System.out.println(Data.PROXY_PREFIX + "Das Plugin wurde erfolgreich aktiviert.");
-        new MySQL("localhost", "headmc", "admin", "Minecraft05!");
+        new MySQL("localhost", "headmc", "admin", "UAKmN2B2OAPNTkVhjCBJ");
 
     }
 

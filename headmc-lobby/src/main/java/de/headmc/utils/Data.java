@@ -1,22 +1,15 @@
 package de.headmc.utils;
 
-import de.headmc.core.Core;
 import de.headmc.core.api.CoinsAPI;
-import de.headmc.core.api.PlayTimeAPI;
 import de.headmc.core.manager.ActionbarManager;
 import de.headmc.core.manager.Base64;
 import de.headmc.core.manager.ItemManager;
-import de.headmc.core.manager.ScoreboardManager;
+import de.headmc.core.manager.ScoreboardSign;
 import de.headmc.core.player.HeadMCPlayer;
 import de.headmc.lobby.Lobby;
 import eu.thesimplecloud.module.permission.PermissionPool;
 import eu.thesimplecloud.module.permission.player.IPermissionPlayer;
-import net.minecraft.server.v1_8_R3.IChatBaseComponent;
-import net.minecraft.server.v1_8_R3.PacketPlayOutPlayerListHeaderFooter;
-import net.minecraft.server.v1_8_R3.PlayerConnection;
-import net.minecraft.server.v1_8_R3.ScoreboardObjective;
 import org.bukkit.*;
-import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -28,7 +21,6 @@ import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Team;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -36,7 +28,6 @@ public class Data {
 
     public static ArrayList<Player> build = new ArrayList<>();
     public static ArrayList<Player> hidePlayer = new ArrayList<>();
-    ScoreboardManager scoreboardManager = new ScoreboardManager();
     private static HashMap<Scoreboard, Player> board = new HashMap<>();
 
     public static void loadedefaultsSettings(Player player){

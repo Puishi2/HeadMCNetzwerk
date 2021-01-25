@@ -81,6 +81,7 @@ public class MySQL {
     public static void createTables() {
         update("CREATE TABLE IF NOT EXISTS coins (UUID varchar(64), coins varchar(64));");
         update("CREATE TABLE IF NOT EXISTS settings (UUID varchar(64), sounds INT, particle INT, player INT);");
+        update("CREATE TABLE IF NOT EXISTS bansystem (UUID varchar(100),CATEGORY TEXT, BANNER WARCHAR(100))");
     }
 
     public static Connection getConnection() {

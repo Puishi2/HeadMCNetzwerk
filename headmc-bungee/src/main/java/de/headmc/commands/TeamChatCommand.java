@@ -22,11 +22,11 @@ public class TeamChatCommand extends Command {
 
         final ProxiedPlayer player = (ProxiedPlayer) sender;
 
-        if(!(player.hasPermission("headmc.team"))) {
+        if (!(player.hasPermission("headmc.team"))) {
             player.sendMessage(Data.PROXY_NOPERMS);
         }
 
-        if(args.length == 0) {
+        if (args.length == 0) {
 
             player.sendMessage(Data.PROXY_PREFIX + "Verwende §2/tc <message>§7, um eine Nachticht an alle Teamler zu senden.");
 
@@ -41,19 +41,20 @@ public class TeamChatCommand extends Command {
             }
 
         }*/
-            if(Data.teamchat.contains(player)) {
-            String message = " ";
-            Integer count = Integer.valueOf(0);
-            while (count.intValue() < args.length) {
-                message = String.valueOf(message) + " " + args[count.intValue()];
-                count = Integer.valueOf(count.intValue() + 1);
-            }
-            message = Data.PROXY_PREFIX + player.getName() + "§8 » §2" + message;
-            for(ProxiedPlayer proxiedPlayer : ProxyServer.getInstance().getPlayers()) {
-                if(!(player.hasPermission("headmc.team"))) {
-                    continue;
+            if (Data.teamchat.contains(player)) {
+                String message = " ";
+                Integer count = Integer.valueOf(0);
+                while (count.intValue() < args.length) {
+                    message = String.valueOf(message) + " " + args[count.intValue()];
+                    count = Integer.valueOf(count.intValue() + 1);
                 }
-                proxiedPlayer.sendMessage(message);
+                message = Data.PROXY_PREFIX + player.getName() + "§8 » §2" + message;
+                for (ProxiedPlayer proxiedPlayer : ProxyServer.getInstance().getPlayers()) {
+                    if (!(player.hasPermission("headmc.team"))) {
+                        continue;
+                    }
+                    proxiedPlayer.sendMessage(message);
+                }
             }
         }
     }

@@ -69,15 +69,15 @@ public class NavigatorListener implements Listener {
         if(event.getInventory().getName().equalsIgnoreCase("§8» §2§lNavigator §8- §7SpielModie")){
            if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §a§lSpawn")){
                new Data().navigatorTeleport(player, new LocationManager().getLocation("spawn"));
-           } else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§c§lBedWars")){
-                new Data().navigatorTeleport(player, new LocationManager().getLocation("bedwars"));
-           } else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§2§lSkyWars")){
+           } else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §c§lBedWars")){
+               new Data().navigatorTeleport(player, new LocationManager().getLocation("bedwars"));
+           } else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §2§lSkyWars")){
                new Data().navigatorTeleport(player, new LocationManager().getLocation("skywars"));
-           } else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§2§lSkyWars")){
+           } else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §2§lSkyWars")){
                new Data().navigatorTeleport(player, new LocationManager().getLocation("skywars"));
-           } else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§5§lLottery")){
+           } else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §5§lLottery")){
                new Data().navigatorTeleport(player, new LocationManager().getLocation("lottery"));
-           } else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§6§lCase Opening")){
+           } else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §6§lCase Opening")){
                new Data().navigatorTeleport(player, new LocationManager().getLocation("case"));
            }
         }

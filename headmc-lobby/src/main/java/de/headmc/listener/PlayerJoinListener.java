@@ -1,6 +1,7 @@
 package de.headmc.listener;
 
 import de.headmc.core.api.CoinsAPI;
+import de.headmc.core.manager.ScoreboardSign;
 import de.headmc.core.manager.SettingsManager;
 import de.headmc.core.player.HeadMCPlayer;
 import de.headmc.utils.Data;
@@ -46,6 +47,7 @@ public class PlayerJoinListener implements Listener {
             new SettingsManager().createPlayer(player);
         }
         new ScoreBoard().setBoard(player);
+
         player.teleport(new LocationManager().getLocation("spawn"));
 
         //new Data().createScoreboard(headMCPlayer, player);

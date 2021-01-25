@@ -9,7 +9,7 @@ import org.bukkit.inventory.ItemStack;
 
 public class ArmorStandManager {
 
-    public void spawnArmorstand(Location location, String name, ItemStack skull, boolean visible, boolean showName, boolean gravity, boolean basePlate) {
+    public ArmorStand spawnArmorstand(Location location, String name, ItemStack skull, boolean visible, boolean showName, boolean gravity, boolean basePlate) {
 
         ArmorStand armorStand = (ArmorStand) Bukkit.getWorld("world").spawnEntity(location, EntityType.ARMOR_STAND);
 
@@ -20,6 +20,7 @@ public class ArmorStandManager {
         armorStand.setGravity(gravity);
         armorStand.setBasePlate(basePlate);
 
+        return armorStand;
     }
 
 }

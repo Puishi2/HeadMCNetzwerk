@@ -1,17 +1,22 @@
 package de.headmc.utils;
 
 import de.headmc.core.api.CoinsAPI;
+import de.headmc.lobby.Lobby;
 import eu.thesimplecloud.module.permission.PermissionPool;
 import eu.thesimplecloud.module.permission.player.IPermissionPlayer;
 import net.minecraft.server.v1_8_R3.*;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.Set;
 
 public class ScoreBoard {
 
     public void setBoard(Player p) {
+
+        Player player;
+
         Scoreboard sb = new Scoreboard();
         ScoreboardObjective obj = sb.registerObjective("dummy", IScoreboardCriteria.b);
         obj.setDisplayName("§8✗ §2§lHeadMC.de §8✗");
@@ -54,19 +59,33 @@ public class ScoreBoard {
         }else {
             a3 = new ScoreboardScore (sb, obj, " §8➥ §7Spieler");
         }
-        ScoreboardScore a4 = new ScoreboardScore(sb, obj, "§2");
-        ScoreboardScore a5 = new ScoreboardScore(sb, obj, " §8» §7Coins");
-        ScoreboardScore a6 = new ScoreboardScore(sb, obj, ""); // = new ScoreboardScore(sb, obj, "PENIS");
-        ScoreboardScore a7 = new ScoreboardScore(sb, obj, "§0");
-        ScoreboardScore a8 = new ScoreboardScore(sb, obj, " §8» §7Hoster");
-        ScoreboardScore a9 = new ScoreboardScore(sb, obj, " §8➥ §2§lVenocix.de");
-        ScoreboardScore a10 = new ScoreboardScore(sb, obj, "§4");
-        ScoreboardScore a11 = new ScoreboardScore(sb, obj, "§8§m----------------§7");
 
         ScoreboardTeam team = sb.createTeam("x6");
         team.setPrefix("§8");
         team.setSuffix(" §8➥ §2§l" + new CoinsAPI().getCoinsSpigot(p));
         //sb.team
+
+        ScoreboardScore a4 = new ScoreboardScore(sb, obj, "§2");
+        ScoreboardScore a5 = new ScoreboardScore(sb, obj, " §8» §7Coins");
+
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                ScoreboardScore a6 = new ScoreboardScore(sb, obj, " §8➥ §2§l" + new CoinsAPI().getCoinsSpigot(p));
+
+                a6.setScore(6);
+                PacketPlayOutScoreboardScore pa6 = new PacketPlayOutScoreboardScore(a6);
+                sendPacket(p, pa6);
+
+
+            }
+        }.runTaskTimer(Lobby.getInstance(), 0, 40);
+
+        ScoreboardScore a7 = new ScoreboardScore(sb, obj, "§0");
+        ScoreboardScore a8 = new ScoreboardScore(sb, obj, " §8» §7Hoster");
+        ScoreboardScore a9 = new ScoreboardScore(sb, obj, " §8➥ §2§lVenocix.de");
+        ScoreboardScore a10 = new ScoreboardScore(sb, obj, "§4");
+        ScoreboardScore a11 = new ScoreboardScore(sb, obj, "§8§m----------------§7");
 
         a0.setScore(12);
         a1.setScore(11);
@@ -87,7 +106,6 @@ public class ScoreBoard {
         PacketPlayOutScoreboardScore pa3 = new PacketPlayOutScoreboardScore(a3);
         PacketPlayOutScoreboardScore pa4 = new PacketPlayOutScoreboardScore(a4);
         PacketPlayOutScoreboardScore pa5 = new PacketPlayOutScoreboardScore(a5);
-        PacketPlayOutScoreboardScore pa6 = new PacketPlayOutScoreboardScore(a6);
         PacketPlayOutScoreboardScore pa7 = new PacketPlayOutScoreboardScore(a7);
         PacketPlayOutScoreboardScore pa8 = new PacketPlayOutScoreboardScore(a8);
         PacketPlayOutScoreboardScore pa9 = new PacketPlayOutScoreboardScore(a9);
@@ -104,7 +122,6 @@ public class ScoreBoard {
         sendPacket(p, pa3);
         sendPacket(p, pa4);
         sendPacket(p, pa5);
-        sendPacket(p, pa6);
         sendPacket(p, pa7);
         sendPacket(p, pa8);
         sendPacket(p, pa9);
