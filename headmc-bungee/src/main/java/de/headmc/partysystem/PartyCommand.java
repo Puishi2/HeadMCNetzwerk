@@ -23,11 +23,13 @@ public class PartyCommand extends Command {
         if(sender instanceof ProxiedPlayer) {
             final ProxiedPlayer player = (ProxiedPlayer) sender;
             if(args.length < 1) {
-                player.sendMessage("§7Lade einen Spieler ein: §2/party invite §7<Spieler>");
-                player.sendMessage("§7Verlasse die Party: §2/party leave");
-                player.sendMessage("§7Nehme eine Einladung an: §2/party accept §7<Spieler>");
-                player.sendMessage("§7Kicke einen Spieler: §2/party kick §7<Spieler>");
-                player.sendMessage("§7Partychat: §2/pc §7<Nachricht>");
+                player.sendMessage("§8§m--------------------------------------");
+                player.sendMessage(Data.PARTY_PREFIX + "§7Lade einen Spieler ein: §5/party invite §7<Spieler>");
+                player.sendMessage(Data.PARTY_PREFIX + "§7Verlasse die Party: §5/party leave");
+                player.sendMessage(Data.PARTY_PREFIX + "§7Nehme eine Einladung an: §5/party accept §7<Spieler>");
+                player.sendMessage(Data.PARTY_PREFIX + "§7Kicke einen Spieler: §5/party kick §7<Spieler>");
+                player.sendMessage(Data.PARTY_PREFIX + "§7Party-Chat: §5/party msg §7<Nachricht>");
+                player.sendMessage("§8§m--------------------------------------");
             } else if(args[0].equalsIgnoreCase("create")) {
                 Party.neueParty(player);
             } else if(args[0].equalsIgnoreCase("list")) {
@@ -49,6 +51,18 @@ public class PartyCommand extends Command {
                 }
             } else if(args[0].equalsIgnoreCase("accept")) {
                 Party.accept(player);
+            } else if(args[0].equalsIgnoreCase("msg")) {
+                if (Party.inparty.containsKey(player) || Party.partyleiter.contains(player)) {
+                    String msg2 = "";
+                    int i = 0;
+                    while (i < args.length) {
+                        msg2 = String.valueOf(String.valueOf(msg2)) + args[i] + " ";
+                        Party.chat(player, msg2);
+                        i++;
+                    }
+                } else {
+                    player.sendMessage(Data.PARTY_PREFIX + "Du befindest dich in keiner Party.");
+                }
             } else if(args[0].equalsIgnoreCase("kick")) {
                 if(args.length > 1) {
                     for (ProxiedPlayer target : ProxyServer.getInstance().getPlayers()) {
@@ -62,17 +76,21 @@ public class PartyCommand extends Command {
                     player.sendMessage(Data.PARTY_PREFIX + "Verwende §5/party kick §7<Spieler>");
                 }
             } else if(args[0].equalsIgnoreCase("help")) {
-                player.sendMessage("§7Lade einen Spieler ein: §2/party invite §7<Spieler>");
-                player.sendMessage("§7Verlasse die Party: §2/party leave");
-                player.sendMessage("§7Nehme eine Einladung an: §2/party accept §7<Spieler>");
-                player.sendMessage("§7Kicke einen Spieler: §2/party kick §7<Spieler>");
-                player.sendMessage("§7Partychat: §2/pc §7<Nachricht>");
+                player.sendMessage("§8§m--------------------------------------");
+                player.sendMessage(Data.PARTY_PREFIX + "§7Lade einen Spieler ein: §5/party invite §7<Spieler>");
+                player.sendMessage(Data.PARTY_PREFIX + "§7Verlasse die Party: §5/party leave");
+                player.sendMessage(Data.PARTY_PREFIX + "§7Nehme eine Einladung an: §5/party accept §7<Spieler>");
+                player.sendMessage(Data.PARTY_PREFIX + "§7Kicke einen Spieler: §5/party kick §7<Spieler>");
+                player.sendMessage(Data.PARTY_PREFIX + "§7Party-Chat: §5/party msg §7<Nachricht>");
+                player.sendMessage("§8§m--------------------------------------");
             } else {
-                player.sendMessage("§7Lade einen Spieler ein: §2/party invite §7<Spieler>");
-                player.sendMessage("§7Verlasse die Party: §2/party leave");
-                player.sendMessage("§7Nehme eine Einladung an: §2/party accept §7<Spieler>");
-                player.sendMessage("§7Kicke einen Spieler: §2/party kick §7<Spieler>");
-                player.sendMessage("§7Partychat: §2/pc §7<Nachricht>");
+                player.sendMessage("§8§m--------------------------------------");
+                player.sendMessage(Data.PARTY_PREFIX + "§7Lade einen Spieler ein: §5/party invite §7<Spieler>");
+                player.sendMessage(Data.PARTY_PREFIX + "§7Verlasse die Party: §5/party leave");
+                player.sendMessage(Data.PARTY_PREFIX + "§7Nehme eine Einladung an: §5/party accept §7<Spieler>");
+                player.sendMessage(Data.PARTY_PREFIX + "§7Kicke einen Spieler: §5/party kick §7<Spieler>");
+                player.sendMessage(Data.PARTY_PREFIX + "§7Party-Chat: §5/party msg §7<Nachricht>");
+                player.sendMessage("§8§m--------------------------------------");
             }
         }
     }

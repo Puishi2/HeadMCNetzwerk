@@ -1,6 +1,7 @@
 de\headmc\partysystem\PartyCommand.class
 de\headmc\commands\HelpCommand.class
 de\headmc\commands\PremiumPlusCommand.class
+de\headmc\partysystem\PartyListener.class
 de\headmc\commands\FindCommand.class
 de\headmc\bansystem\sql\MySQL.class
 de\headmc\commands\InfoCommand.class
@@ -13,4 +14,5 @@ de\headmc\commands\YoutubeCommand.class
 de\headmc\data\Data.class
 de\headmc\partysystem\Party.class
 de\headmc\commands\ServerJoinCommand.class
+de\headmc\partysystem\PartyChat.class
 de\headmc\bungee\Proxy.class

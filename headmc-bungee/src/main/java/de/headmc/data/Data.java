@@ -35,7 +35,7 @@ public class Data {
         pluginManager.registerCommand(Proxy.getInstance(), new HelpCommand("help", null, "hilfe"));
         pluginManager.registerCommand(Proxy.getInstance(), new YoutubeCommand("youtube", null, "yt"));
         pluginManager.registerCommand(Proxy.getInstance(), new PremiumPlusCommand("premium+", null, "p+"));
-        pluginManager.registerCommand(Proxy.getInstance(), new TeamChatCommand("teamchat", "headmc.team", "tc"));
+        pluginManager.registerCommand(Proxy.getInstance(), new TeamChatCommand("teamchat", null, "tc"));
 
     }
 }

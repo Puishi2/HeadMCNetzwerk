@@ -33,7 +33,7 @@ public class PartyListener implements Listener {
     }
 
     @EventHandler
-    public void onleave(PlayerDisconnectEvent event) {
+    public void onleave(final PlayerDisconnectEvent event) {
         final ProxiedPlayer player = event.getPlayer();
         if(Party.partyleiter.contains(player.getName()))
             Party.leave(player);
