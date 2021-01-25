@@ -28,7 +28,7 @@ public class JoinMeCommand extends Command implements Listener {
             for(ProxiedPlayer all : ProxyServer.getInstance().getPlayers()) {
                 TextComponent textComponent = new TextComponent(String.valueOf("§c§l Klicke hier!"));
                 textComponent.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, (new ComponentBuilder("§2Verbinden").create())));
-                textComponent.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/abcdefghijk" + player.getServer().getInfo().getName()));
+                textComponent.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/abcdefghijk " + player.getServer().getInfo().getName()));
 
                 ProxyServer.getInstance().broadcast("§8§m------------------");
                 ProxyServer.getInstance().broadcast("§1");

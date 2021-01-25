@@ -16,9 +16,8 @@ public class PingCommand extends Command {
 
     @Override
     public void execute(CommandSender commandSender, String[] strings) {
-    if(!(commandSender instanceof ProxiedPlayer)){
-        return;
-    }else{
+
+    if(commandSender instanceof ProxiedPlayer) {
 
         ProxiedPlayer proxiedPlayer = (ProxiedPlayer)commandSender;
         ProxiedPlayer proxiedTarget = ProxyServer.getInstance().getPlayer(strings[0]);
@@ -28,14 +27,11 @@ public class PingCommand extends Command {
             proxiedPlayer.sendMessage(Data.PROXY_PREFIX + "Du hast einen Ping von §2" + proxiedPlayer.getPing() +"§7ms.");
 
         }
-        if(strings.length ==1) {
+        if(strings.length == 1) {
 
             proxiedPlayer.sendMessage(Data.PROXY_PREFIX + "Der Spieler §2" + proxiedTarget.getName() +" §7hat einen Ping von §2" + proxiedTarget.getPing() + "§7ms.");
 
+            }
         }
-
-    }
-
-
     }
 }

@@ -16,9 +16,8 @@ public class FindCommand extends Command {
 
     @Override
     public void execute(CommandSender commandSender, String[] strings) {
-    if(!(commandSender instanceof ProxiedPlayer)){
-        return;
-    }else {
+
+        if(commandSender instanceof ProxiedPlayer) {
 
         if(strings.length == 0){
 
@@ -33,24 +32,16 @@ public class FindCommand extends Command {
 
                     if(target != null){
 
-
-
                         player.sendMessage(Data.PROXY_PREFIX + "Der Spieler §2" + target.getName()+ "§7 befindet sich auf §2" + target.getServer().getInfo().getName() + "§7.");
 
                     }else{
 
                         player.sendMessage(Data.PROXY_PREFIX + "Der angegebende §2Spieler §7ist nicht online.");
 
+                        }
                     }
-
                 }
-
             }
-
         }
-
-    }
-
-
     }
 }

@@ -30,7 +30,7 @@ public class TeamChatCommand extends Command {
 
             player.sendMessage(Data.PROXY_PREFIX + "Verwende §2/tc <message>§7, um eine Nachticht an alle Teamler zu senden.");
 
-        } if(args.length == 1) {
+        /*} if(args.length == 1) {
 
             if(args[0].equals("login")) {
                 player.sendMessage(Data.PROXY_PREFIX + "Du hast dich erfolgreich §7in den Teamchat §2eingeloggt§7.");
@@ -40,7 +40,8 @@ public class TeamChatCommand extends Command {
                 Data.teamchat.remove(player);
             }
 
-        } if(Data.teamchat.contains(player)) {
+        }*/
+            if(Data.teamchat.contains(player)) {
             String message = " ";
             Integer count = Integer.valueOf(0);
             while (count.intValue() < args.length) {
