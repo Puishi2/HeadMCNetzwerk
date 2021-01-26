@@ -32,6 +32,7 @@ public class Data {
         pluginManager.registerCommand(Proxy.getInstance(), new KickCommand("kick"));
         pluginManager.registerCommand(Proxy.getInstance(), new PingCommand("ping"));
         pluginManager.registerCommand(Proxy.getInstance(), new JoinMeCommand("joinme"));
+        pluginManager.registerCommand(Proxy.getInstance(), new BroadCastCommand("broadcast"));
         pluginManager.registerCommand(Proxy.getInstance(), new HelpCommand("help", null, "hilfe"));
         pluginManager.registerCommand(Proxy.getInstance(), new YoutubeCommand("youtube", null, "yt"));
         pluginManager.registerCommand(Proxy.getInstance(), new PremiumPlusCommand("premium+", null, "p+"));
