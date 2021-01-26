@@ -16,6 +16,7 @@ public class Proxy extends Plugin {
     public void onEnable() {
 
         new Data().init();
+        new Data().createFile();
         instance = this;
         System.out.println(Data.PROXY_PREFIX + "Das Plugin wurde erfolgreich aktiviert.");
         new MySQL("localhost", "headmc", "admin", "UAKmN2B2OAPNTkVhjCBJ");
