@@ -2,10 +2,14 @@ package de.headmc.listener;
 
 import de.headmc.core.builder.InventoryBuilder;
 import de.headmc.utils.Data;
+import org.bukkit.Effect;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.entity.CreeperPowerEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -70,6 +74,11 @@ public class CancelledEvents implements Listener {
         } else {
             event.setCancelled(true);
         }
+    }
+
+    @EventHandler
+    public void creeperEvent(CreeperPowerEvent event) {
+        event.setCancelled(true);
     }
 
 }

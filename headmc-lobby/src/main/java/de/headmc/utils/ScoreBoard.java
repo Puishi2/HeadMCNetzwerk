@@ -29,61 +29,43 @@ public class ScoreBoard {
         ScoreboardScore a2 = new ScoreboardScore (sb, obj, " §8» §7Rang");
         ScoreboardScore a3;
         if(permissionPlayer.hasPermissionGroup("Admin")) {
-            a3 = new ScoreboardScore (sb, obj, " §8➥ §4Admin");
+            a3 = new ScoreboardScore (sb, obj, "  §8➥ §4Admin");
         } else if(permissionPlayer.hasPermissionGroup("SrDeveloper")) {
-            a3 = new ScoreboardScore (sb, obj, " §8➥ §bSrDeveloper");
+            a3 = new ScoreboardScore (sb, obj, "  §8➥ §bSrDeveloper");
         } else if(permissionPlayer.hasPermissionGroup("Developer")){
-            a3 = new ScoreboardScore (sb, obj, " §8➥ §bDeveloper");
+            a3 = new ScoreboardScore (sb, obj, "  §8➥ §bDeveloper");
         }else if(permissionPlayer.hasPermissionGroup("Builder")){
-            a3 = new ScoreboardScore (sb, obj, " §8➥ §2Builder");
+            a3 = new ScoreboardScore (sb, obj, "  §8➥ §2Builder");
         }else if(permissionPlayer.hasPermissionGroup("Supporter")){
-            a3 = new ScoreboardScore (sb, obj, " §8➥ §3Supporter");
+            a3 = new ScoreboardScore (sb, obj, "  §8➥ §3Supporter");
         }else if(permissionPlayer.hasPermissionGroup("Moderator")){
-            a3 = new ScoreboardScore (sb, obj, " §8➥ §9Moderator");
+            a3 = new ScoreboardScore (sb, obj, "  §8➥ §9Moderator");
         }else if(permissionPlayer.hasPermissionGroup("SrModerator")){
-            a3 = new ScoreboardScore (sb, obj, " §8➥ §9SrModerator");
+            a3 = new ScoreboardScore (sb, obj, "  §8➥ §9SrModerator");
         }else if(permissionPlayer.hasPermissionGroup("Freund")){
-            a3 = new ScoreboardScore (sb, obj, " §8➥ §fFreund");
+            a3 = new ScoreboardScore (sb, obj, "  §8➥ §fFreund");
         }else if(permissionPlayer.hasPermissionGroup("SrContent")){
-            a3 = new ScoreboardScore (sb, obj, " §8➥ §cSrContent");
+            a3 = new ScoreboardScore (sb, obj, "  §8➥ §cSrContent");
         }else if(permissionPlayer.hasPermissionGroup("Content")){
-            a3 = new ScoreboardScore (sb, obj, " §8➥ §cContent");
+            a3 = new ScoreboardScore (sb, obj, "  §8➥ §cContent");
         }else if(permissionPlayer.hasPermissionGroup("Prime")){
-            a3 = new ScoreboardScore (sb, obj, " §8➥ §6Prime");
+            a3 = new ScoreboardScore (sb, obj, "  §8➥ §6Prime");
         }else if(permissionPlayer.hasPermissionGroup("YouTuber")){
-            a3 = new ScoreboardScore (sb, obj, " §8➥ §5YouTuber");
+            a3 = new ScoreboardScore (sb, obj, "  §8➥ §5YouTuber");
         }else if(permissionPlayer.hasPermissionGroup("Premium+")){
-            a3 = new ScoreboardScore (sb, obj, " §8➥ §6Premium§e+");
+            a3 = new ScoreboardScore (sb, obj, "  §8➥ §6Premium§e+");
         }else if(permissionPlayer.hasPermissionGroup("Head")){
-            a3 = new ScoreboardScore (sb, obj, " §8➥ §3Head");
+            a3 = new ScoreboardScore (sb, obj, "  §8➥ §3Head");
         }else {
-            a3 = new ScoreboardScore (sb, obj, " §8➥ §7Spieler");
+            a3 = new ScoreboardScore (sb, obj, "  §8➥ §7Spieler");
         }
 
-        ScoreboardTeam team = sb.createTeam("x6");
-        team.setPrefix("§8");
-        team.setSuffix(" §8➥ §2§l" + new CoinsAPI().getCoinsSpigot(p));
-        //sb.team
-
         ScoreboardScore a4 = new ScoreboardScore(sb, obj, "§2");
-        ScoreboardScore a5 = new ScoreboardScore(sb, obj, " §8» §7Coins");
-
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                ScoreboardScore a6 = new ScoreboardScore(sb, obj, " §8➥ §2§l" + new CoinsAPI().getCoinsSpigot(p));
-
-                a6.setScore(6);
-                PacketPlayOutScoreboardScore pa6 = new PacketPlayOutScoreboardScore(a6);
-                sendPacket(p, pa6);
-
-
-            }
-        }.runTaskTimer(Lobby.getInstance(), 0, 40);
-
+        ScoreboardScore a5 = new ScoreboardScore(sb, obj, " §8» §7Clan");
+        ScoreboardScore a6 = new ScoreboardScore(sb, obj, "  §8➥ §c§lKein Clan");
         ScoreboardScore a7 = new ScoreboardScore(sb, obj, "§0");
         ScoreboardScore a8 = new ScoreboardScore(sb, obj, " §8» §7Hoster");
-        ScoreboardScore a9 = new ScoreboardScore(sb, obj, " §8➥ §2§lVenocix.de");
+        ScoreboardScore a9 = new ScoreboardScore(sb, obj, "  §8➥ §2§lVenocix.de");
         ScoreboardScore a10 = new ScoreboardScore(sb, obj, "§4");
         ScoreboardScore a11 = new ScoreboardScore(sb, obj, "§8§m----------------§7");
 
@@ -93,6 +75,7 @@ public class ScoreBoard {
         a3.setScore(9);
         a4.setScore(8);
         a5.setScore(7);
+        a6.setScore(6);
         a7.setScore(5);
         a8.setScore(4);
         a9.setScore(3);
@@ -106,6 +89,7 @@ public class ScoreBoard {
         PacketPlayOutScoreboardScore pa3 = new PacketPlayOutScoreboardScore(a3);
         PacketPlayOutScoreboardScore pa4 = new PacketPlayOutScoreboardScore(a4);
         PacketPlayOutScoreboardScore pa5 = new PacketPlayOutScoreboardScore(a5);
+        PacketPlayOutScoreboardScore pa6 = new PacketPlayOutScoreboardScore(a6);
         PacketPlayOutScoreboardScore pa7 = new PacketPlayOutScoreboardScore(a7);
         PacketPlayOutScoreboardScore pa8 = new PacketPlayOutScoreboardScore(a8);
         PacketPlayOutScoreboardScore pa9 = new PacketPlayOutScoreboardScore(a9);
@@ -122,6 +106,7 @@ public class ScoreBoard {
         sendPacket(p, pa3);
         sendPacket(p, pa4);
         sendPacket(p, pa5);
+        sendPacket(p, pa6);
         sendPacket(p, pa7);
         sendPacket(p, pa8);
         sendPacket(p, pa9);

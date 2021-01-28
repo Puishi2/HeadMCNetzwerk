@@ -102,7 +102,7 @@ public class PrivateServerListener implements Listener {
 
             if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §c2x1")) {
 
-                new PrivateServerManager().createServer(player, "BW2x1");
+                new PrivateServerManager().createPrivateServer(player, "BW2x1");
                 player.closeInventory();
                 ActionbarManager.setTitle(player, "§c§lPrivater Server", "§7Dein Server startet...", 10, 40, 10);
                 player.playSound(player.getLocation(), Sound.LEVEL_UP, 1, 1);

@@ -9,11 +9,11 @@
         <module name="headmc-lobby" />
         <module name="headmc-core" />
         <module name="headmc-bungee" />
-        <module name="headmc-bedwars" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="headmc-api" target="8" />
+      <module name="headmc-bedwars" target="8" />
       <module name="headmc-bedwars-2x1" target="8" />
     </bytecodeTargetLevel>
   </component>

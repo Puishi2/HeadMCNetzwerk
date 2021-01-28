@@ -42,7 +42,7 @@ public class LotteryListenner implements Listener {
             }
 
             inventory.setItem(11, new ItemManager(Material.PAPER).setDisplayName("§8» §aEinlösen").addLoreLine("§8» §7Deine Tickets §8: §c" + LotteryManager.getLotteryTickets(player)).addEnchant(Enchantment.ARROW_DAMAGE, 1).setFlags().toItemStack());
-            inventory.setItem(15, new ItemManager(Material.GOLD_NUGGET).setDisplayName("§8» §6Kaufen").addLoreLine("§8» §7Preis §8: §c100 Coins").toItemStack());
+            inventory.setItem(15, new ItemManager(Material.GOLD_NUGGET).setDisplayName("§8» §6Kaufen").addLoreLine("§8» §7Preis §8: §c250 Coins").toItemStack());
 
             player.openInventory(inventory);
 
@@ -64,10 +64,10 @@ public class LotteryListenner implements Listener {
 
             if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §6Kaufen")) {
 
-                if(new CoinsAPI().getCoinsSpigot(player) >= 100) {
+                if(new CoinsAPI().getCoinsSpigot(player) >= 250) {
 
                     LotteryManager.addTickets(player, 1);
-                    new CoinsAPI().removeCoinsSpigot(player, 100);
+                    new CoinsAPI().removeCoinsSpigot(player, 250);
                     player.sendMessage(Data.NETWORK_PREFIX + "Du hast dir ein Ticket gekauft!");
                     player.closeInventory();
                     Bukkit.getWorld("world").playEffect(player.getLocation(), Effect.FLAME, 2);

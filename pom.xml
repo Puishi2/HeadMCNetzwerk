@@ -13,7 +13,6 @@
         <module>headmc-core</module>
         <module>headmc-lobby</module>
         <module>headmc-bungee</module>
-        <module>headmc-bedwars</module>
     </modules>
 
 </project>
