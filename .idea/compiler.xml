@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="headmc-skywars" />
         <module name="headmc-lobby" />
         <module name="headmc-core" />
         <module name="headmc-bungee" />

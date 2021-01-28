@@ -10,14 +10,6 @@ import java.util.HashMap;
 
 public class PrivateServerManager {
 
-    public void createServer(Player player, String group) {
-
-        ICloudServiceGroup iCloudServiceGroup = CloudAPI.getInstance().getCloudServiceGroupManager().getServiceGroupByName(group);
-        iCloudServiceGroup.startNewService();
-
-
-    }
-
     public void createPrivateServer(Player player, String group){
         ICloudServiceGroup serviceGroup = CloudAPI.getInstance().getCloudServiceGroupManager().getServiceGroupByName(group);
         if (serviceGroup != null) {
@@ -25,7 +17,6 @@ public class PrivateServerManager {
                 ICloudService cloudService = (ICloudService) future.getNow();
                 ICloudPlayer iCloudPlayer = CloudAPI.getInstance().getCloudPlayerManager().getCachedCloudPlayer(player.getUniqueId());
                 iCloudPlayer.connect(cloudService);
-
             });
         }
     }

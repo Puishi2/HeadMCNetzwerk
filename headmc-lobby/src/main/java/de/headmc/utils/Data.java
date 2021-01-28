@@ -21,7 +21,9 @@ import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Team;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 public class Data {
@@ -137,9 +139,10 @@ public class Data {
         new BukkitRunnable() {
             @Override
             public void run() {
-                ActionbarManager.setActionBar(player, "§8» §7Spielzeit §8× §2" + "0" + " §8┃ §7Coins §8× §2" + new CoinsAPI().getCoinsSpigot(player));
+                final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
+                ActionbarManager.setActionBar(player, "§8» §7Uhrzeit §8× §6" + simpleDateFormat.format(new Date()) + " §8┃ §7Coins §8× §2" + new CoinsAPI().getCoinsSpigot(player));
             }
-        }.runTaskTimer(Lobby.getInstance(), 0, 40);
+        }.runTaskTimer(Lobby.getInstance(), 0, 10);
 
     }
 
