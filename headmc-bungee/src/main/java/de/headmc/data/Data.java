@@ -22,7 +22,6 @@ public class Data {
     public static final String PROXY_NOPERMS = PROXY_PREFIX + "Dazu hast du keine Rechte!";
     public static ArrayList<CommandSender> teamchat = new ArrayList<>();
 
-
     public void readFile() {
         File file = new File("plugins//Bungee//config.yml");
         Configuration configuration = null;
