@@ -22,10 +22,6 @@ public class TeamChatCommand extends Command {
 
         final ProxiedPlayer player = (ProxiedPlayer) sender;
 
-        if (!(player.hasPermission("headmc.team"))) {
-            player.sendMessage(Data.PROXY_NOPERMS);
-        }
-
         if (args.length == 0) {
 
             player.sendMessage(Data.PROXY_PREFIX + "Verwende §2/tc <message>§7, um eine Nachticht an alle Teamler zu senden.");

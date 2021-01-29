@@ -36,15 +36,22 @@ public class TeamCommand extends Command {
             sender.sendMessage((String) configuration.get("Admin"));
             sender.sendMessage((String) configuration.get("Admin2"));
             sender.sendMessage("§2");
-            sender.sendMessage((String) configuration.get("SrDev"));
-            sender.sendMessage((String) configuration.get("Dev"));
-            sender.sendMessage((String) configuration.get("Dev2"));
+            if(configuration.get("SrDev") != null) {
+                sender.sendMessage((String) configuration.get("SrDev"));
+            }
+            if(configuration.get("Dev") != null) {
+                sender.sendMessage((String) configuration.get("Dev"));
+            }
+            if(configuration.get("Dev2") != null) {
+                sender.sendMessage((String) configuration.get("Dev2"));
+            }
+
             sender.sendMessage("§3");
-            sender.sendMessage((String) configuration.get("SrMod"));
-            sender.sendMessage((String) configuration.get("Mod"));
-            sender.sendMessage("§4");
             sender.sendMessage((String) configuration.get("SrCon"));
             sender.sendMessage((String) configuration.get("Con"));
+            sender.sendMessage("§4");
+            sender.sendMessage((String) configuration.get("SrMod"));
+            sender.sendMessage((String) configuration.get("Mod"));
             sender.sendMessage("§5");
             sender.sendMessage((String) configuration.get("Sup"));
             sender.sendMessage((String) configuration.get("Builder"));
