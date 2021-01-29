@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="headmc-skywars" />
         <module name="headmc-lobby" />
+        <module name="headmc-teamspeakbot" />
         <module name="headmc-core" />
         <module name="headmc-bungee" />
       </profile>
