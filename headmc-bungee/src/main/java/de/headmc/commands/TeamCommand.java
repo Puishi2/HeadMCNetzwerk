@@ -118,6 +118,8 @@ public class TeamCommand extends Command {
                 sender.sendMessage("§aSup §8➥ §a" + configuration.get("Sup4"));
             }
 
+            sender.sendMessage("§6");
+
             if(configuration.get("Builder") != null) {
                 sender.sendMessage("§2Builder §8➥ §2" + configuration.get("Builder"));
             } else {
@@ -126,9 +128,11 @@ public class TeamCommand extends Command {
 
             if(configuration.get("Builder2") != null) {
                 sender.sendMessage("§2Builder §8➥ §2" + configuration.get("Builder2"));
+            } else {
+                sender.sendMessage("§2Builder §8➥ §7wird gesucht!");
             }
 
-            sender.sendMessage("§6");
+            sender.sendMessage("§7");
             sender.sendMessage("§8§m--------------------§8§7§5§3§9");
         }
     }
