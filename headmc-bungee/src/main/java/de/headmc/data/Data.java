@@ -8,7 +8,8 @@ import de.headmc.partysystem.PartyListener;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.plugin.PluginManager;
-import org.bukkit.configuration.file.YamlConfiguration;
+import net.md_5.bungee.config.Configuration;
+import net.md_5.bungee.config.YamlConfiguration;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,19 +22,13 @@ public class Data {
     public static final String PROXY_NOPERMS = PROXY_PREFIX + "Dazu hast du keine Rechte!";
     public static ArrayList<CommandSender> teamchat = new ArrayList<>();
 
-    public void createFile() {
+    public void readFile() {
         File file = new File("plugins//Bungee//config.yml");
-        YamlConfiguration configuration = YamlConfiguration.loadConfiguration(file);
-
-        configuration.set("Admin", "§4Admin §8: §4Puishi");
-        configuration.set("Admin2", "§4Admin §8: §4HttpEndrew");
-
-        configuration.set("Dev", "§bDev §8: §bPhexxo");
-
+        Configuration configuration = null;
         try {
-            configuration.save(file);
-        } catch (IOException e) {
-            e.printStackTrace();
+            configuration = net.md_5.bungee.config.YamlConfiguration.getProvider(YamlConfiguration.class).load(file);
+        } catch (IOException exception) {
+            exception.printStackTrace();
         }
     }
 

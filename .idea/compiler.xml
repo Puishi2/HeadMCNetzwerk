@@ -15,7 +15,6 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="headmc-api" target="8" />
-      <module name="headmc-bedwars" target="8" />
       <module name="headmc-bedwars-2x1" target="8" />
     </bytecodeTargetLevel>
   </component>
